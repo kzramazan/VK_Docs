@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInVC" customModule="VK_Docs" customModuleProvider="target">
+            <connections>
+                <outlet property="backgrounView" destination="BXH-Ko-0GY" id="nSm-Mu-Pwb"/>
+                <outlet property="loginField" destination="Bpo-qN-M0Y" id="1aw-Bg-Pu5"/>
+                <outlet property="passwordField" destination="cST-ic-KPG" id="9PR-ts-yrs"/>
+                <outlet property="singInButton" destination="gfx-ms-4NX" id="Lz1-Vg-kHE"/>
+                <outlet property="view" destination="iN0-l3-epB" id="3Xy-8d-EqB"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BXH-Ko-0GY">
+                    <rect key="frame" x="60" y="418" width="294" height="60"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email или телефон" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bpo-qN-M0Y">
+                            <rect key="frame" x="0.0" y="0.0" width="294" height="30"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="cDg-85-YDE"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cST-ic-KPG">
+                            <rect key="frame" x="0.0" y="30" width="294" height="30"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="MWV-hu-6mx"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2l1-ii-ciF">
+                            <rect key="frame" x="0.0" y="30" width="294" height="0.5"/>
+                            <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="9tR-IF-nDH"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="2l1-ii-ciF" firstAttribute="leading" secondItem="BXH-Ko-0GY" secondAttribute="leading" id="0LH-W4-tbq"/>
+                        <constraint firstItem="cST-ic-KPG" firstAttribute="top" secondItem="Bpo-qN-M0Y" secondAttribute="bottom" id="8xe-Mk-Xkt"/>
+                        <constraint firstItem="cST-ic-KPG" firstAttribute="leading" secondItem="BXH-Ko-0GY" secondAttribute="leading" id="BCr-mI-4qt"/>
+                        <constraint firstAttribute="bottom" secondItem="cST-ic-KPG" secondAttribute="bottom" id="Cnb-i9-aDZ"/>
+                        <constraint firstItem="Bpo-qN-M0Y" firstAttribute="top" secondItem="BXH-Ko-0GY" secondAttribute="top" id="GXo-hz-C3Z"/>
+                        <constraint firstAttribute="trailing" secondItem="2l1-ii-ciF" secondAttribute="trailing" id="YgK-H5-HS3"/>
+                        <constraint firstItem="2l1-ii-ciF" firstAttribute="centerY" secondItem="BXH-Ko-0GY" secondAttribute="centerY" id="a7y-Qu-Y9X"/>
+                        <constraint firstAttribute="trailing" secondItem="Bpo-qN-M0Y" secondAttribute="trailing" id="hjy-fP-uFa"/>
+                        <constraint firstAttribute="trailing" secondItem="cST-ic-KPG" secondAttribute="trailing" id="hmH-Sr-9ya"/>
+                        <constraint firstItem="Bpo-qN-M0Y" firstAttribute="leading" secondItem="BXH-Ko-0GY" secondAttribute="leading" id="nf8-ti-czR"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfx-ms-4NX">
+                    <rect key="frame" x="60" y="493" width="294" height="40"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Tra-EY-pTV"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                    <state key="normal" title="Войти">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="didTapSignIn:" destination="-1" eventType="touchUpInside" id="hV6-pc-uPU"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="BXH-Ko-0GY" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="60" id="JTi-mQ-8LS"/>
+                <constraint firstItem="BXH-Ko-0GY" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Tr3-ri-NDh"/>
+                <constraint firstItem="gfx-ms-4NX" firstAttribute="leading" secondItem="BXH-Ko-0GY" secondAttribute="leading" id="aev-gA-Gu4"/>
+                <constraint firstItem="BXH-Ko-0GY" firstAttribute="trailing" secondItem="gfx-ms-4NX" secondAttribute="trailing" id="cDU-1R-lnR"/>
+                <constraint firstItem="gfx-ms-4NX" firstAttribute="top" secondItem="BXH-Ko-0GY" secondAttribute="bottom" constant="15" id="rHy-oh-Bb4"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="BXH-Ko-0GY" secondAttribute="trailing" constant="60" id="zWc-2b-W9N"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="137.68115942028987" y="150.66964285714286"/>
+        </view>
+    </objects>
+</document>

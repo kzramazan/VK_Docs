@@ -7,31 +7,103 @@
 //
 
 import UIKit
-
+import VK_ios_sdk
+import Pods_VK_Docs
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+    var window: UIWindow?
+    static let vkAppID = "5784789"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        launchApp(launchOptions)
         return true
     }
-
-    // MARK: UISceneSession Lifecycle
-
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+    
+    
+//    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+//        print("VK open URL: \(url). Options: \(options.keys)")
+//        VKSdk.processOpen(url, fromApplication: options.keys.first?.rawValue)
+//        return true
+//    }
+    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        VKSdk.processOpen(url, fromApplication: sourceApplication)
+        return true
     }
+    
+}
 
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+extension AppDelegate {
+    func launchApp(_ launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
+//        VKSdk.initialize(withAppId: vkAppID)
+//        VKSdk.initialize()
+        
+//        VKSdk.wakeUpSession(["friends", "email", "docs"]) { (state, error) in
+//            print("wake up session state: ", state)
+//            if error != nil {
+//                print("Error in wake up session: ", error?.localizedDescription)
+//                return
+//            }
+//
+//            if state == .authorized {
+//                VKSdk.authorize(["friends", "email", "docs"])
+//            }else {
+//
+//            }
+//
+//
+//        }
+        setVKAuth()
+//        if let bundleIdentifier = Bundle.main.bundleIdentifier {
+//
+//
+//
+//        }
+        
+//        VKSdk.register()
     }
+    
+    func setupRootViewController(_ rootViewController: UIViewController = SignInVC()) {
+        let vc = rootViewController
+        let navigation = UINavigationController(rootViewController: vc)
 
+        let frame = UIScreen.main.bounds
+        window = UIWindow(frame: frame)
 
+        window!.rootViewController = navigation
+        window!.makeKeyAndVisible()
+    }
+    
+    func setVKAuth() {
+        let permissionList: [Constants.VKPermission] = [.friends, .email, .docs]
+        VKSdk.wakeUpSession(permissionList) { [weak self] (state, error) in
+            guard let self = self else { return }
+            if error != nil {
+                print(error.debugDescription)
+                return
+            }
+            
+            if state == .authorized {
+                let vkApi = VKApi.users()?.get()
+                vkApi?.execute(resultBlock: { [weak self] (response) in
+                    guard let self = self else { return }
+                    let currUser = CurrentUser(object: (response?.json as? NSArray)?[0] as? NSDictionary)
+                    if CurrentUser.shared != currUser {
+                       CurrentUser.shared = currUser
+                    }
+                    
+                    self.setupRootViewController()
+                }, errorBlock: { (error) in
+                    print(error.debugDescription)
+                })
+            }else {
+                self.setupRootViewController()
+            }
+        }
+    }
+}
+
+extension AppDelegate {
 }
 
