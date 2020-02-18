@@ -6,8 +6,8 @@
 //  Copyright © 2020 Ramazan Kazybek. All rights reserved.
 //
 
-import UIKit
 import VK_ios_sdk
+
 class SignInVC: UIViewController {
     
     @IBOutlet weak var backgrounView: UIView!
@@ -20,7 +20,7 @@ class SignInVC: UIViewController {
         super.viewDidLoad()
         
         configUI()
-        VKSdk.initialize(withAppId: AppDelegate.vkAppID)
+        VKSdk.initialize(withAppId: Constants.vkAppID)
         VKSdk.instance()?.register(self)
         VKSdk.instance().uiDelegate = self
         
@@ -72,7 +72,14 @@ extension SignInVC: UITextFieldDelegate {
 private extension SignInVC {
     //MARK: - Actions
     @IBAction func didTapSignIn(_ sender: UIButton) {
-        
+        goToDocumentVC()
+    }
+    
+    func goToDocumentVC() {
+        let vc = UINavigationController(rootViewController: DocumentsVC())
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .flipHorizontal
+        navigationController?.present(vc, animated: true)
     }
     
     //MARK: - ConfigUI
@@ -116,5 +123,7 @@ extension SignInVC: VKSdkDelegate {
         UserDefaults.standard.set(newToken, forKey: "TOKEN_KEY")
         UserDefaults.standard.synchronize()
         print(newToken)
+        
+        goToDocumentVC()
     }
 }

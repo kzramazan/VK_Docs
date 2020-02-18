@@ -12,7 +12,7 @@ import Pods_VK_Docs
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    static let vkAppID = "5784789"
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate {
     func launchApp(_ launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-//        VKSdk.initialize(withAppId: vkAppID)
+        VKSdk.initialize(withAppId: Constants.vkAppID)
 //        VKSdk.initialize()
         
 //        VKSdk.wakeUpSession(["friends", "email", "docs"]) { (state, error) in
@@ -54,7 +54,8 @@ extension AppDelegate {
 //
 //
 //        }
-        setVKAuth()
+        setupRootViewController()
+//        setVKAuth()
 //        if let bundleIdentifier = Bundle.main.bundleIdentifier {
 //
 //
@@ -93,7 +94,7 @@ extension AppDelegate {
                        CurrentUser.shared = currUser
                     }
                     
-                    self.setupRootViewController()
+                    self.setupRootViewController(DocumentsVC())
                 }, errorBlock: { (error) in
                     print(error.debugDescription)
                 })

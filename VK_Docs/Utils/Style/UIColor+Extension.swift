@@ -41,3 +41,9 @@ extension UIColor {
         )
     }
 }
+
+typealias Tint = UIColor
+
+extension Tint {
+    static let progressViewColor = UIColor(hex: "#2A6BCB")
+}

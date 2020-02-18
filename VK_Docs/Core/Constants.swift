@@ -10,11 +10,11 @@ import Foundation
 
 struct Constants {
     static let sharedProfile = "SharedUserProfile"
-    
+    static let vkAppID = "5784789"
     enum VKPermission {
         typealias RawValue = String
-        
         case friends, email, docs
-        
     }
+    
+    
 }

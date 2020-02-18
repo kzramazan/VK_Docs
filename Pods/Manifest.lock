@@ -1,16 +1,28 @@
 PODS:
+  - Alamofire (4.9.1)
+  - SnapKit (5.0.1)
+  - SVProgressHUD (2.2.5)
   - VK-ios-sdk (1.5.1)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - SnapKit
+  - SVProgressHUD
   - VK-ios-sdk
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - SnapKit
+    - SVProgressHUD
     - VK-ios-sdk
 
 SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   VK-ios-sdk: 62a10b6571fbcda0657f455fedce7fedf55b4cd0
 
-PODFILE CHECKSUM: c285076082e4a4b88262d57f0bb9dc2ded684999
+PODFILE CHECKSUM: b7a6bd1c6a6026595b9e70924b93b3c4145b9cfe
 
 COCOAPODS: 1.8.4
