@@ -21,12 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
-//    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-//        print("VK open URL: \(url). Options: \(options.keys)")
-//        VKSdk.processOpen(url, fromApplication: options.keys.first?.rawValue)
-//        return true
-//    }
-    
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         VKSdk.processOpen(url, fromApplication: sourceApplication)
         return true
@@ -37,24 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     func launchApp(_ launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         VKSdk.initialize(withAppId: Constants.vkAppID)
-//        VKSdk.initialize()
-        
-//        VKSdk.wakeUpSession(["friends", "email", "docs"]) { (state, error) in
-//            print("wake up session state: ", state)
-//            if error != nil {
-//                print("Error in wake up session: ", error?.localizedDescription)
-//                return
-//            }
-//
-//            if state == .authorized {
-//                VKSdk.authorize(["friends", "email", "docs"])
-//            }else {
-//
-//            }
-//
-//
-//        }
-//        setupRootViewController()
         setVKAuth()
 //        if let bundleIdentifier = Bundle.main.bundleIdentifier {
 //
