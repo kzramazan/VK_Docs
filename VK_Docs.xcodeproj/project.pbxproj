@@ -137,7 +137,6 @@
 				34D1A1F323F98CCA000F450D /* Main.storyboard */,
 				34D1A1F623F98CCB000F450D /* Assets.xcassets */,
 				34D1A1F823F98CCB000F450D /* LaunchScreen.storyboard */,
-				34D1A1FB23F98CCB000F450D /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -207,6 +206,7 @@
 		34D1A1EC23F98CCA000F450D /* VK_Docs */ = {
 			isa = PBXGroup;
 			children = (
+				34D1A1FB23F98CCB000F450D /* Info.plist */,
 				346494BE23FD2B6B002DAE01 /* Sources */,
 				346494BD23FD2B54002DAE01 /* Resources */,
 			);

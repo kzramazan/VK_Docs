@@ -101,8 +101,9 @@ private extension DocumentsVC {
     }
     
     func showEditAlert(vkDoc: VKDocs, row: Int) {
-        let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        let sheet = UIAlertController(title: "", message: nil, preferredStyle: .alert)
         sheet.addTextField { (textField : UITextField!) -> Void in
+            
             textField.placeholder = vkDoc.title
         }
         
