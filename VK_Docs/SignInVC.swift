@@ -8,7 +8,7 @@
 
 import VK_ios_sdk
 
-class SignInVC: UIViewController {
+class SignInVC: UIViewController, BaseViewControllerProtocol {
     
     @IBOutlet weak var backgrounView: UIView!
     @IBOutlet weak var loginField: UITextField!
@@ -24,20 +24,15 @@ class SignInVC: UIViewController {
         VKSdk.instance()?.register(self)
         VKSdk.instance().uiDelegate = self
         
-        VKSdk.wakeUpSession(["friends", "email", "docs"]) { (state, error) in
+        VKSdk.wakeUpSession(["friends", "email", "docs"]) { [weak self] (state, error) in
+            guard let self = self else { return }
             if error != nil {
-                print(error?.localizedDescription)
+                self.showError(message: error?.localizedDescription)
                 return
             }
             
             if state == .authorized {
-                let vkApi = VKApi.users()?.get()
-                vkApi?.execute(resultBlock: { (response) in
-                    let currUser = CurrentUser(object: (response?.json as? NSArray)?[0] as? NSDictionary)
-                    CurrentUser.shared = currUser
-                }, errorBlock: { (error) in
-                    print(error?.localizedDescription)
-                })
+                self.goToDocumentVC()
             }else {
                 VKSdk.authorize(["friends", "email", "docs"], with: .disableSafariController)
             }
@@ -116,6 +111,7 @@ extension SignInVC: VKSdkDelegate {
     }
     
     func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
+        goToDocumentVC()
         print("User token: \(result.token)")
     }
     
@@ -123,7 +119,5 @@ extension SignInVC: VKSdkDelegate {
         UserDefaults.standard.set(newToken, forKey: "TOKEN_KEY")
         UserDefaults.standard.synchronize()
         print(newToken)
-        
-        goToDocumentVC()
     }
 }

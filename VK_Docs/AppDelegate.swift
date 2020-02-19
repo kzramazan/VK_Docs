@@ -54,8 +54,8 @@ extension AppDelegate {
 //
 //
 //        }
-        setupRootViewController()
-//        setVKAuth()
+//        setupRootViewController()
+        setVKAuth()
 //        if let bundleIdentifier = Bundle.main.bundleIdentifier {
 //
 //
@@ -87,9 +87,10 @@ extension AppDelegate {
             
             if state == .authorized {
                 let vkApi = VKApi.users()?.get()
+                
                 vkApi?.execute(resultBlock: { [weak self] (response) in
                     guard let self = self else { return }
-                    let currUser = CurrentUser(object: (response?.json as? NSArray)?[0] as? NSDictionary)
+                    let currUser = CurrentUser(dict: (response?.json as? NSArray)?[0] as? NSDictionary)
                     if CurrentUser.shared != currUser {
                        CurrentUser.shared = currUser
                     }

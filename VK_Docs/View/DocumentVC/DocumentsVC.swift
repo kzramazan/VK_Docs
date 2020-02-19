@@ -10,7 +10,9 @@ import UIKit
 import PDFKit
 import VK_ios_sdk
 
-class DocumentsVC: UIViewController, BaseViewControllerProtocol {
+
+
+class DocumentsVC: UIViewController, BaseViewControllerProtocol, Refreshable {
     private let viewModel = DocumentViewModel()
     
     private lazy var tableView: UITableView = {
@@ -22,12 +24,16 @@ class DocumentsVC: UIViewController, BaseViewControllerProtocol {
         tableView.separatorColor = .clear
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.refreshControl = self.refreshControl
         return tableView
     }()
+    
+    let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
+        setTargets()
         
         getDocumentList()
     }
@@ -57,7 +63,8 @@ extension DocumentsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithRegistration(DocumentTableViewCell.self)!
         if let docsArr = viewModel.getList() {
-            cell.vkDoc = docsArr[UInt(indexPath.row)]
+            cell.setCell(with: docsArr[UInt(indexPath.row)], at: indexPath.row)
+            cell.delegate = self
         }
         return cell
     }
@@ -74,15 +81,9 @@ extension DocumentsVC: UITableViewDelegate, UITableViewDataSource {
 }
 
 private extension DocumentsVC {
-    //MARK: - Actions
-    func getDocumentList() {
-        viewModel.getDocumentList(success: { [weak self] in
-            guard let self = self else { return }
-            self.tableView.reloadData()
-        }) { [weak self] (error) in
-            guard let self = self else { return }
-            self.showError(message: error)
-        }
+    //MARK: - Methods
+    func setTargets() {
+        refreshControl.addTarget(self, action: #selector(getDocumentList), for: .valueChanged)
     }
     
     func openDocument(vkDocs: VKDocs) {
@@ -94,6 +95,80 @@ private extension DocumentsVC {
 
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func deleteFromTableView(row: Int) {
+        tableView.deleteRows(at: [IndexPath(row: row, section: 0)], with: .left)
+    }
+    
+    func showEditAlert(vkDoc: VKDocs, row: Int) {
+        let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        sheet.addTextField { (textField : UITextField!) -> Void in
+            textField.placeholder = vkDoc.title
+        }
+        
+        let saveAction = UIAlertAction(title: "Сохранить", style: .default, handler: { alert -> Void in
+            self.editDocument(vkDoc: vkDoc, title: sheet.textFields?[0].text, row: row)
+        })
+        
+        let cancelAction = UIAlertAction(title: "Отменить", style: .cancel, handler: { (action : UIAlertAction!) -> Void in })
+
+        sheet.addAction(saveAction)
+        sheet.addAction(cancelAction)
+
+        self.present(sheet, animated: true, completion: nil)
+    }
+    
+    //MARK: - Actions
+    
+    
+    
+    //MARK: - Requests
+    @objc func getDocumentList() {
+        startRefreshing()
+        viewModel.getDocumentList(success: { [weak self] in
+            guard let self = self else { return }
+            self.stopRefreshing()
+            
+            self.tableView.reloadData()
+        }) { [weak self] (error) in
+            guard let self = self else { return }
+            self.stopRefreshing()
+            
+            self.showError(message: error)
+        }
+    }
+    
+    func deleteDocument(vkDoc: VKDocs, row: Int) {
+        
+        viewModel.deleteDocument(docID: vkDoc.id as! Int, at: row, success: { [weak self] in
+            guard let self = self else { return }
+            self.tableView.beginUpdates()
+            self.deleteFromTableView(row: row)
+            self.tableView.endUpdates()
+        }) { [weak self] (error) in
+            guard let self = self else { return }
+            self.showError(message: error)
+        }
+    }
+    
+    func editDocument(vkDoc: VKDocs, title: String?, row: Int) {
+        guard let title = title else {
+            self.showError(message: "Добавьте текст, чтобы редактировать")
+            return
+        }
+        viewModel.editDocument(docID: vkDoc.id as! Int, title: title, at: row, success: { [weak self] in
+            guard let self = self else { return }
+            self.tableView.beginUpdates()
+            self.tableView.reloadRows(at: [IndexPath(row: row, section: 0)], with: .fade)
+            self.tableView.endUpdates()
+        }) { [weak self] (error) in
+            guard let self = self else { return }
+            self.showError(message: error)
+        }
+    }
+    
+    
+    
     
     //MARK: - ConfigUI
     func configUI() {
@@ -107,6 +182,35 @@ private extension DocumentsVC {
             m.edges.equalToSuperview()
         }
     }
+}
+
+//MARK: - DocumentTableViewCellDelegate
+extension DocumentsVC: DocumentTableViewCellDelegate {
+    func moreButtonTapped(vkDoc: VKDocs, at row: Int) {
+        let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let restoreBtn = UIAlertAction(title: "Переименовать", style: .default) { [unowned self] (action) in
+            self.showEditAlert(vkDoc: vkDoc, row: row)
+            sheet.dismiss(animated: true, completion: nil)
+        }
+        
+        sheet.addAction(restoreBtn)
+        
+        let deleteBtn = UIAlertAction(title: "Удалить документ", style: .destructive) {[unowned self] (action) in
+            self.deleteDocument(vkDoc: vkDoc, row: row)
+            sheet.dismiss(animated: true, completion: nil)
+        }
+        
+        sheet.addAction(deleteBtn)
+        
+        let cancelBtn = UIAlertAction(title: "Отменить", style: .cancel) { (action) in
+            sheet.dismiss(animated: true, completion: nil)
+        }
+        sheet.addAction(cancelBtn)
+        
+        self.present(sheet, animated: true, completion: nil)
+    }
+    
 }
 
 extension VKDocsStruct.VKDocsExt {

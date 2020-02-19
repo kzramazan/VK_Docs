@@ -9,55 +9,30 @@
 import UIKit
 import VK_ios_sdk
 
-struct VKDocsStruct {
-    private var vkDoc: VKDocs
-    enum VKDocsExt: Int {
-        case txt = 1
-        case archive = 2
-        case gif = 3
-        case image = 4
-        case audio = 5
-        case video = 6
-        case ebook = 7
-        case other = 8
-    }
-    
-    init(vkDoc: VKDocs) {
-        self.vkDoc = vkDoc
-    }
-    
-    var getImage: UIImage? {
-        get {
-            switch VKDocsExt(rawValue: vkDoc.type as! Int) {
-            case .txt:
-                return UIImage(named: "text_docs")
-            case .archive:
-                return UIImage(named: "zip_docs")
-            case .gif:
-                return UIImage(named: vkDoc.photo_100)
-            case .audio:
-                return UIImage(named: "audio_docs")
-            case .video:
-                return UIImage(named: "video_docs")
-            case .ebook:
-                return UIImage(named: "book_docs")
-            default:
-                return UIImage(named: "other_docs")
-            }
-        }
-    }
+protocol DocumentTableViewCellDelegate: AnyObject {
+    func moreButtonTapped(vkDoc: VKDocs, at row: Int)
 }
 
 class DocumentTableViewCell: UITableViewCell {
     @IBOutlet weak var docImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var moreButton: UIButton!
     
-    var vkDoc: VKDocs? {
+    var row: Int?
+    
+    var delegate: DocumentTableViewCellDelegate?
+    
+    private var vkDoc: VKDocs? {
         didSet {
             guard let vkDoc = vkDoc else { return }
             let image = VKDocsStruct(vkDoc: vkDoc)
-            docImageView.image = image.getImage
+            if #available(iOS 13.0, *) {
+                docImageView.image = image.getImage?.withTintColor(UIColor(hex: "#3F8AE0"), renderingMode: .alwaysTemplate)
+            } else {
+                docImageView.tintColor = UIColor(hex: "#3F8AE0")
+            }
+            
             if let title = vkDoc.title {
                 titleLabel.text = title
             }
@@ -77,6 +52,11 @@ class DocumentTableViewCell: UITableViewCell {
         }
     }
     
+    func setCell(with vkDoc: VKDocs, at row: Int) {
+        self.vkDoc = vkDoc
+        self.row = row
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -92,6 +72,10 @@ class DocumentTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+    }
+    
+    @IBAction func moreButtonTapped(_ sender: UIButton) {
+        guard let vkDoc = vkDoc, let row = row else { return }
+        delegate?.moreButtonTapped(vkDoc: vkDoc, at: row)
     }
 }

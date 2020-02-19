@@ -24,8 +24,20 @@
                             <constraint firstAttribute="height" constant="72" id="Ylf-4h-b0j"/>
                         </constraints>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4T7-jI-xPk">
-                        <rect key="frame" x="96" y="12" width="208" height="59"/>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5H-wq-rqA">
+                        <rect key="frame" x="273" y="18" width="48" height="48"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="48" id="nBp-vX-E3w"/>
+                            <constraint firstAttribute="width" constant="48" id="y2r-2t-beT"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                        <state key="normal" image="horizontal_dots"/>
+                        <connections>
+                            <action selector="moreButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="swL-xo-o4p"/>
+                        </connections>
+                    </button>
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4T7-jI-xPk">
+                        <rect key="frame" x="96" y="12" width="169" height="59"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="Title Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNm-Dc-2XM">
                                 <rect key="frame" x="0.0" y="0.0" width="74.5" height="20.5"/>
@@ -34,7 +46,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="TXT * 0 KB * 18 авг ьвыьалыв авышоашвыоащ ао" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ab-zC-14O">
-                                <rect key="frame" x="0.0" y="23.5" width="208" height="16"/>
+                                <rect key="frame" x="0.0" y="23.5" width="168" height="16"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -53,13 +65,16 @@
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="4T7-jI-xPk" secondAttribute="trailing" constant="16" id="4rC-Vd-ICh"/>
+                    <constraint firstItem="C5H-wq-rqA" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="0g3-ki-qgp"/>
+                    <constraint firstItem="C5H-wq-rqA" firstAttribute="trailing" secondItem="4T7-jI-xPk" secondAttribute="trailing" constant="56" id="4rC-Vd-ICh"/>
                     <constraint firstItem="gpM-iL-xSE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="De4-yU-hXe"/>
                     <constraint firstItem="gpM-iL-xSE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="HBV-6h-fNl"/>
                     <constraint firstAttribute="bottom" secondItem="gpM-iL-xSE" secondAttribute="bottom" constant="6" id="NCJ-3Q-Amt"/>
+                    <constraint firstAttribute="trailing" secondItem="C5H-wq-rqA" secondAttribute="trailing" id="cpb-wx-ryb"/>
                     <constraint firstItem="4T7-jI-xPk" firstAttribute="leading" secondItem="gpM-iL-xSE" secondAttribute="trailing" constant="12" id="gOh-h8-CrT"/>
                     <constraint firstItem="4T7-jI-xPk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="tp1-JT-hen"/>
                     <constraint firstAttribute="bottom" secondItem="4T7-jI-xPk" secondAttribute="bottom" constant="13" id="x0Y-3v-MR5"/>
+                    <constraint firstItem="C5H-wq-rqA" firstAttribute="leading" secondItem="4T7-jI-xPk" secondAttribute="trailing" id="z8p-BH-Wuz"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -67,9 +82,13 @@
             <connections>
                 <outlet property="descriptionLabel" destination="3ab-zC-14O" id="Wd0-15-qNy"/>
                 <outlet property="docImageView" destination="gpM-iL-xSE" id="kww-W7-Tfk"/>
+                <outlet property="moreButton" destination="C5H-wq-rqA" id="Ebn-oF-f5a"/>
                 <outlet property="titleLabel" destination="TNm-Dc-2XM" id="NJA-jY-Mcb"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="166.07142857142856"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="horizontal_dots" width="16" height="16"/>
+    </resources>
 </document>

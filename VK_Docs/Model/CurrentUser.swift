@@ -9,7 +9,7 @@
 import Foundation
 
 class CurrentUser: NSObject {
-    let id: Int?
+    let id: Int
     let firstName: String?
     let lastName: String?
     
@@ -34,19 +34,29 @@ class CurrentUser: NSObject {
     }
     
     init(dict: NSDictionary?) {
-        self.id = dict?["id"] as? Int
+        self.id = dict?["id"] as! Int
         self.firstName = dict?["first_name"] as? String
         self.lastName = dict?["lastName"] as? String
     }
     
-    init(object: NSObject?) {
-        self.id = object?.value(forKey: "id") as? Int ?? nil
-        self.firstName = object?.value(forKey: "first_name") as? String ?? nil
-        self.lastName = object?.value(forKey: "last_name") as? String ?? nil
-    }
+//    init(object: NSObject?) {
+//        self.id = object?.value(forKey: "id") as? Int ?? nil
+//        self.firstName = object?.value(forKey: "first_name") as? String ?? nil
+//        self.lastName = object?.value(forKey: "last_name") as? String ?? nil
+//    }
     
     class func getDictFromCurrentUser(user: CurrentUser?) -> NSDictionary {
         guard let user = user else { return [:]}
-        return ["first_name": user.firstName!, "last_name": user.lastName!, "id": user.id!]
+        var result: [String: Any] = [:]
+        result["id"] = user.id
+        
+        if let firstName = user.firstName {
+           result["first_name"] = firstName
+        }
+        
+        if let lastName = user.lastName {
+            result["last_name"] = lastName
+        }
+        return result as NSDictionary
     }
 }

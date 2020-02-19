@@ -18,6 +18,8 @@
 		346494B323FBF3EF002DAE01 /* AnyDocuments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346494B223FBF3EF002DAE01 /* AnyDocuments.swift */; };
 		346494B523FBF644002DAE01 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346494B423FBF644002DAE01 /* UIImageView+Extension.swift */; };
 		346494B723FBF777002DAE01 /* QuickLookOpenable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346494B623FBF777002DAE01 /* QuickLookOpenable.swift */; };
+		346494B923FC0902002DAE01 /* VKDocsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346494B823FC0902002DAE01 /* VKDocsStruct.swift */; };
+		346494BB23FD105A002DAE01 /* Refreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346494BA23FD105A002DAE01 /* Refreshable.swift */; };
 		34968C4423FAFD1B00D70CFE /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34968C4323FAFD1B00D70CFE /* UITableView+Extension.swift */; };
 		34968C4623FAFDEC00D70CFE /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34968C4523FAFDEC00D70CFE /* UITableViewCell+Extension.swift */; };
 		34968C4A23FAFE3F00D70CFE /* DocumentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34968C4823FAFE3F00D70CFE /* DocumentTableViewCell.swift */; };
@@ -48,6 +50,8 @@
 		346494B223FBF3EF002DAE01 /* AnyDocuments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDocuments.swift; sourceTree = "<group>"; };
 		346494B423FBF644002DAE01 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		346494B623FBF777002DAE01 /* QuickLookOpenable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickLookOpenable.swift; sourceTree = "<group>"; };
+		346494B823FC0902002DAE01 /* VKDocsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKDocsStruct.swift; sourceTree = "<group>"; };
+		346494BA23FD105A002DAE01 /* Refreshable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refreshable.swift; sourceTree = "<group>"; };
 		34968C4323FAFD1B00D70CFE /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		34968C4523FAFDEC00D70CFE /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		34968C4823FAFE3F00D70CFE /* DocumentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTableViewCell.swift; sourceTree = "<group>"; };
@@ -205,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				34D1A20E23F9D41D000F450D /* CurrentUser.swift */,
+				346494B823FC0902002DAE01 /* VKDocsStruct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -218,6 +223,7 @@
 				346494A923FB2CC4002DAE01 /* DocumentsProvider.swift */,
 				346494B023FBF3C3002DAE01 /* WebViewOpenable.swift */,
 				346494B623FBF777002DAE01 /* QuickLookOpenable.swift */,
+				346494BA23FD105A002DAE01 /* Refreshable.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -367,6 +373,7 @@
 				346494B323FBF3EF002DAE01 /* AnyDocuments.swift in Sources */,
 				34D1A20C23F9AEA4000F450D /* UIColor+Extension.swift in Sources */,
 				346494B523FBF644002DAE01 /* UIImageView+Extension.swift in Sources */,
+				346494BB23FD105A002DAE01 /* Refreshable.swift in Sources */,
 				34968C4A23FAFE3F00D70CFE /* DocumentTableViewCell.swift in Sources */,
 				346494A823FB284B002DAE01 /* DateUtility.swift in Sources */,
 				346494B723FBF777002DAE01 /* QuickLookOpenable.swift in Sources */,
@@ -374,6 +381,7 @@
 				34968C4D23FB0AFC00D70CFE /* UIViewController+Extension.swift in Sources */,
 				346494B123FBF3C3002DAE01 /* WebViewOpenable.swift in Sources */,
 				346494AA23FB2CC4002DAE01 /* DocumentsProvider.swift in Sources */,
+				346494B923FC0902002DAE01 /* VKDocsStruct.swift in Sources */,
 				346494A423FB1717002DAE01 /* BaseViewControllerProtocol.swift in Sources */,
 				34D1A21223FA3ED1000F450D /* Constants.swift in Sources */,
 				346494AD23FBEBA9002DAE01 /* WebViewController.swift in Sources */,
