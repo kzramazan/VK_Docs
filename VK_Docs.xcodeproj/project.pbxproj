@@ -121,9 +121,45 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		346494BC23FD2B41002DAE01 /* SignInVC */ = {
+			isa = PBXGroup;
+			children = (
+				34D1A20723F9A5FB000F450D /* SignInVC.xib */,
+				34D1A20123F9A526000F450D /* SignInVC.swift */,
+			);
+			path = SignInVC;
+			sourceTree = "<group>";
+		};
+		346494BD23FD2B54002DAE01 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				34D1A1ED23F98CCA000F450D /* AppDelegate.swift */,
+				34D1A1F323F98CCA000F450D /* Main.storyboard */,
+				34D1A1F623F98CCB000F450D /* Assets.xcassets */,
+				34D1A1F823F98CCB000F450D /* LaunchScreen.storyboard */,
+				34D1A1FB23F98CCB000F450D /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		346494BE23FD2B6B002DAE01 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				346494AB23FBEB9D002DAE01 /* Components */,
+				3464949E23FB1494002DAE01 /* ViewModel */,
+				34968C4223FAFD0900D70CFE /* Extensions */,
+				34968C3F23FAF3DB00D70CFE /* View */,
+				34D1A21023FA3EC0000F450D /* Core */,
+				34D1A20D23F9D409000F450D /* Model */,
+				34D1A20923F9AE92000F450D /* Utils */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
 		34968C3F23FAF3DB00D70CFE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				346494BC23FD2B41002DAE01 /* SignInVC */,
 				3464949F23FB14A4002DAE01 /* DocumentVC */,
 			);
 			path = View;
@@ -171,20 +207,8 @@
 		34D1A1EC23F98CCA000F450D /* VK_Docs */ = {
 			isa = PBXGroup;
 			children = (
-				346494AB23FBEB9D002DAE01 /* Components */,
-				3464949E23FB1494002DAE01 /* ViewModel */,
-				34968C4223FAFD0900D70CFE /* Extensions */,
-				34968C3F23FAF3DB00D70CFE /* View */,
-				34D1A21023FA3EC0000F450D /* Core */,
-				34D1A20D23F9D409000F450D /* Model */,
-				34D1A20923F9AE92000F450D /* Utils */,
-				34D1A1ED23F98CCA000F450D /* AppDelegate.swift */,
-				34D1A1F323F98CCA000F450D /* Main.storyboard */,
-				34D1A1F623F98CCB000F450D /* Assets.xcassets */,
-				34D1A1F823F98CCB000F450D /* LaunchScreen.storyboard */,
-				34D1A1FB23F98CCB000F450D /* Info.plist */,
-				34D1A20123F9A526000F450D /* SignInVC.swift */,
-				34D1A20723F9A5FB000F450D /* SignInVC.xib */,
+				346494BE23FD2B6B002DAE01 /* Sources */,
+				346494BD23FD2B54002DAE01 /* Resources */,
 			);
 			path = VK_Docs;
 			sourceTree = "<group>";
