@@ -20,6 +20,10 @@
 		346494B723FBF777002DAE01 /* QuickLookOpenable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346494B623FBF777002DAE01 /* QuickLookOpenable.swift */; };
 		346494B923FC0902002DAE01 /* VKDocsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346494B823FC0902002DAE01 /* VKDocsStruct.swift */; };
 		346494BB23FD105A002DAE01 /* Refreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346494BA23FD105A002DAE01 /* Refreshable.swift */; };
+		346494C223FE7C1E002DAE01 /* ContentSharingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346494C023FE7C1E002DAE01 /* ContentSharingVC.swift */; };
+		346494C323FE7C1E002DAE01 /* ContentSharingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 346494C123FE7C1E002DAE01 /* ContentSharingVC.xib */; };
+		346494C523FE7F37002DAE01 /* ListPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346494C423FE7F37002DAE01 /* ListPlaceholderView.swift */; };
+		346494C723FE7F95002DAE01 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346494C623FE7F95002DAE01 /* UIFont+Extension.swift */; };
 		34968C4423FAFD1B00D70CFE /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34968C4323FAFD1B00D70CFE /* UITableView+Extension.swift */; };
 		34968C4623FAFDEC00D70CFE /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34968C4523FAFDEC00D70CFE /* UITableViewCell+Extension.swift */; };
 		34968C4A23FAFE3F00D70CFE /* DocumentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34968C4823FAFE3F00D70CFE /* DocumentTableViewCell.swift */; };
@@ -52,6 +56,10 @@
 		346494B623FBF777002DAE01 /* QuickLookOpenable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickLookOpenable.swift; sourceTree = "<group>"; };
 		346494B823FC0902002DAE01 /* VKDocsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKDocsStruct.swift; sourceTree = "<group>"; };
 		346494BA23FD105A002DAE01 /* Refreshable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refreshable.swift; sourceTree = "<group>"; };
+		346494C023FE7C1E002DAE01 /* ContentSharingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSharingVC.swift; sourceTree = "<group>"; };
+		346494C123FE7C1E002DAE01 /* ContentSharingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentSharingVC.xib; sourceTree = "<group>"; };
+		346494C423FE7F37002DAE01 /* ListPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPlaceholderView.swift; sourceTree = "<group>"; };
+		346494C623FE7F95002DAE01 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		34968C4323FAFD1B00D70CFE /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		34968C4523FAFDEC00D70CFE /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		34968C4823FAFE3F00D70CFE /* DocumentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTableViewCell.swift; sourceTree = "<group>"; };
@@ -117,6 +125,7 @@
 				346494AC23FBEBA9002DAE01 /* WebViewController.swift */,
 				346494AE23FBF36C002DAE01 /* QuickLookImageVC.swift */,
 				346494B223FBF3EF002DAE01 /* AnyDocuments.swift */,
+				346494C423FE7F37002DAE01 /* ListPlaceholderView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -155,9 +164,19 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		346494BF23FE7C08002DAE01 /* ContentSharingVC */ = {
+			isa = PBXGroup;
+			children = (
+				346494C023FE7C1E002DAE01 /* ContentSharingVC.swift */,
+				346494C123FE7C1E002DAE01 /* ContentSharingVC.xib */,
+			);
+			path = ContentSharingVC;
+			sourceTree = "<group>";
+		};
 		34968C3F23FAF3DB00D70CFE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				346494BF23FE7C08002DAE01 /* ContentSharingVC */,
 				346494BC23FD2B41002DAE01 /* SignInVC */,
 				3464949F23FB14A4002DAE01 /* DocumentVC */,
 			);
@@ -172,6 +191,7 @@
 				34968C4C23FB0AFC00D70CFE /* UIViewController+Extension.swift */,
 				346494A323FB1717002DAE01 /* BaseViewControllerProtocol.swift */,
 				346494B423FBF644002DAE01 /* UIImageView+Extension.swift */,
+				346494C623FE7F95002DAE01 /* UIFont+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -334,6 +354,7 @@
 				34D1A1F723F98CCB000F450D /* Assets.xcassets in Resources */,
 				34D1A20823F9A5FB000F450D /* SignInVC.xib in Resources */,
 				34D1A1F523F98CCA000F450D /* Main.storyboard in Resources */,
+				346494C323FE7C1E002DAE01 /* ContentSharingVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,12 +410,14 @@
 				346494A223FB14BB002DAE01 /* DocumentViewModel.swift in Sources */,
 				346494A623FB23EA002DAE01 /* Units.swift in Sources */,
 				34D1A20F23F9D41D000F450D /* CurrentUser.swift in Sources */,
+				346494C523FE7F37002DAE01 /* ListPlaceholderView.swift in Sources */,
 				34D1A1F223F98CCA000F450D /* DocumentsVC.swift in Sources */,
 				34968C4423FAFD1B00D70CFE /* UITableView+Extension.swift in Sources */,
 				34968C4623FAFDEC00D70CFE /* UITableViewCell+Extension.swift in Sources */,
 				34D1A1EE23F98CCA000F450D /* AppDelegate.swift in Sources */,
 				34D1A20323F9A526000F450D /* SignInVC.swift in Sources */,
 				346494B323FBF3EF002DAE01 /* AnyDocuments.swift in Sources */,
+				346494C723FE7F95002DAE01 /* UIFont+Extension.swift in Sources */,
 				34D1A20C23F9AEA4000F450D /* UIColor+Extension.swift in Sources */,
 				346494B523FBF644002DAE01 /* UIImageView+Extension.swift in Sources */,
 				346494BB23FD105A002DAE01 /* Refreshable.swift in Sources */,
@@ -403,6 +426,7 @@
 				346494B723FBF777002DAE01 /* QuickLookOpenable.swift in Sources */,
 				346494AF23FBF36C002DAE01 /* QuickLookImageVC.swift in Sources */,
 				34968C4D23FB0AFC00D70CFE /* UIViewController+Extension.swift in Sources */,
+				346494C223FE7C1E002DAE01 /* ContentSharingVC.swift in Sources */,
 				346494B123FBF3C3002DAE01 /* WebViewOpenable.swift in Sources */,
 				346494AA23FB2CC4002DAE01 /* DocumentsProvider.swift in Sources */,
 				346494B923FC0902002DAE01 /* VKDocsStruct.swift in Sources */,
