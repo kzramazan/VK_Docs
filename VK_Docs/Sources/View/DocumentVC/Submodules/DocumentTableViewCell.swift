@@ -14,7 +14,7 @@ protocol DocumentTableViewCellDelegate: AnyObject {
 }
 
 class DocumentTableViewCell: UITableViewCell {
-    @IBOutlet weak var docImageView: UIImageView!
+    @IBOutlet weak var docImageView: CustomImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var moreButton: UIButton!
@@ -28,7 +28,11 @@ class DocumentTableViewCell: UITableViewCell {
             guard let vkDoc = vkDoc else { return }
             let image = VKDocsStruct(vkDoc: vkDoc)
             if #available(iOS 13.0, *) {
-                docImageView.image = image.getImage?.withTintColor(UIColor(hex: "#3F8AE0"), renderingMode: .alwaysTemplate)
+                if let image = image.getImage?.withTintColor(UIColor(hex: "#3F8AE0"), renderingMode: .alwaysTemplate) {
+                    docImageView.image = image
+                }else {
+                    docImageView.loadImageFromUrl(urlString: vkDoc.photo_100)
+                }
             } else {
                 docImageView.tintColor = UIColor(hex: "#3F8AE0")
             }

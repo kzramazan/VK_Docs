@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gpM-iL-xSE">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gpM-iL-xSE" customClass="CustomImageView" customModule="VK_Docs" customModuleProvider="target">
                         <rect key="frame" x="12" y="6" width="72" height="72"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="72" id="3Tl-a0-bNV"/>

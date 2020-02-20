@@ -32,8 +32,8 @@ struct VKDocsStruct {
                 return UIImage(named: "text_docs")
             case .archive:
                 return UIImage(named: "zip_docs")
-            case .gif:
-                return UIImage(named: vkDoc.photo_100)
+            case .gif, .image:
+                return nil
             case .audio:
                 return UIImage(named: "audio_docs")
             case .video:
@@ -45,4 +45,6 @@ struct VKDocsStruct {
             }
         }
     }
+    
+    
 }
