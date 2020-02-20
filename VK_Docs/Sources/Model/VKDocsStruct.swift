@@ -12,13 +12,13 @@ struct VKDocsStruct {
     private var vkDoc: VKDocs
     enum VKDocsExt: Int {
         case txt = 1
-        case archive = 2
-        case gif = 3
-        case image = 4
-        case audio = 5
-        case video = 6
-        case ebook = 7
-        case other = 8
+        case archive
+        case gif
+        case image
+        case audio
+        case video
+        case ebook
+        case other
     }
     
     init(vkDoc: VKDocs) {
