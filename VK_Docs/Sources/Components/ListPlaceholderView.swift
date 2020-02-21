@@ -45,9 +45,9 @@ class ListPlaceholderView: UIView {
         let btn = UIButton()
         btn.setTitleColor(.white, for: .normal)
         btn.backgroundColor = Tint.customButtonColor
-        btn.layer.cornerRadius = 18
+        btn.layer.cornerRadius = 10
         btn.titleLabel?.adjustsFontSizeToFitWidth = true
-        btn.titleLabel?.font = UIFont.mainFont(ofSize: 14)
+        btn.titleLabel?.font = UIFont.mainFont(ofSize: 15)
         btn.addTarget(self, action: #selector(submitBtnHandler(_:)), for: .touchUpInside)
         return btn
     }()
@@ -81,6 +81,25 @@ class ListPlaceholderView: UIView {
                 make.width.equalTo(imageSize.width)
                 make.height.equalTo(imageSize.height)
             }
+        }
+    }
+    
+    var imageTintColor: UIColor? {
+        didSet {
+            guard let imageTintColor = imageTintColor else { return }
+            imageView.image?.withRenderingMode(.alwaysTemplate)
+            if #available(iOS 13.0, *) {
+                imageView.image?.withTintColor(imageTintColor, renderingMode: .alwaysTemplate)
+//                imageView.image?.colorMask(color: imageTintColor)
+                
+            } else {
+                // Fallback on earlier versions
+            }
+//            imageView.image.
+            imageView.tintColor = imageTintColor
+//            imageView.tintColorDidChange()
+            imageView.setNeedsLayout()
+            imageView.layoutIfNeeded()
         }
     }
     

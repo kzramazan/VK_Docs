@@ -53,32 +53,34 @@ extension AppDelegate {
     }
     
     func setVKAuth() {
-        let permissionList: [Constants.VKPermission] = [.friends, .email, .docs]
-        VKSdk.wakeUpSession(permissionList) { [weak self] (state, error) in
-            guard let self = self else { return }
-            if error != nil {
-                print(error.debugDescription)
-                return
-            }
-            
-            if state == .authorized {
-                let vkApi = VKApi.users()?.get()
-                
-                vkApi?.execute(resultBlock: { [weak self] (response) in
-                    guard let self = self else { return }
-                    let currUser = CurrentUser(dict: (response?.json as? NSArray)?[0] as? NSDictionary)
-                    if CurrentUser.shared != currUser {
-                       CurrentUser.shared = currUser
-                    }
-                    
-                    self.setupRootViewController(DocumentsVC())
-                }, errorBlock: { (error) in
-                    print(error.debugDescription)
-                })
-            }else {
-                self.setupRootViewController()
-            }
-        }
+        let permissionList: [Constants.VKPermission] = [.friends, .email, .docs, .photos, .audio, .video, .wall, .messages]
+        
+        setupRootViewController()
+//        VKSdk.wakeUpSession(permissionList) { [weak self] (state, error) in
+//            guard let self = self else { return }
+//            if error != nil {
+//                print(error.debugDescription)
+//                return
+//            }
+//            
+//            if state == .authorized {
+//                let vkApi = VKApi.users()?.get()
+//                
+//                vkApi?.execute(resultBlock: { [weak self] (response) in
+//                    guard let self = self else { return }
+//                    let currUser = CurrentUser(dict: (response?.json as? NSArray)?[0] as? NSDictionary)
+//                    if CurrentUser.shared != currUser {
+//                       CurrentUser.shared = currUser
+//                    }
+//                    
+//                    self.setupRootViewController(DocumentsVC())
+//                }, errorBlock: { (error) in
+//                    print(error.debugDescription)
+//                })
+//            }else {
+//                self.setupRootViewController()
+//            }
+//        }
     }
 }
 

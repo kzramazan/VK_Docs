@@ -13,7 +13,7 @@ struct Constants {
     static let vkAppID = "7323303"
     enum VKPermission {
         typealias RawValue = String
-        case friends, email, docs
+        case friends, email, docs, photos, audio, video, wall, messages
     }
     
     

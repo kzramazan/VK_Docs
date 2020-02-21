@@ -39,12 +39,6 @@ class CurrentUser: NSObject {
         self.lastName = dict?["lastName"] as? String
     }
     
-//    init(object: NSObject?) {
-//        self.id = object?.value(forKey: "id") as? Int ?? nil
-//        self.firstName = object?.value(forKey: "first_name") as? String ?? nil
-//        self.lastName = object?.value(forKey: "last_name") as? String ?? nil
-//    }
-    
     class func getDictFromCurrentUser(user: CurrentUser?) -> NSDictionary {
         guard let user = user else { return [:]}
         var result: [String: Any] = [:]

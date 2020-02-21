@@ -8,6 +8,9 @@
 
 import VK_ios_sdk
 
+typealias SuccessCompletion = (() -> Void)
+typealias ErrorCompletion = ((String?) -> Void)
+
 class SignInVC: UIViewController, BaseViewControllerProtocol {
     
     @IBOutlet weak var backgrounView: UIView!
@@ -23,8 +26,9 @@ class SignInVC: UIViewController, BaseViewControllerProtocol {
         VKSdk.initialize(withAppId: Constants.vkAppID)
         VKSdk.instance()?.register(self)
         VKSdk.instance().uiDelegate = self
+        let permissionList: [Constants.VKPermission] = [.wall, .docs, .friends, .photos, .messages]
         
-        VKSdk.wakeUpSession(["friends", "email", "docs"]) { [weak self] (state, error) in
+        VKSdk.wakeUpSession([permissionList]) { [weak self] (state, error) in
             guard let self = self else { return }
             if error != nil {
                 self.showError(message: error?.localizedDescription)
@@ -34,7 +38,7 @@ class SignInVC: UIViewController, BaseViewControllerProtocol {
             if state == .authorized {
                 self.goToNeededVC()
             }else {
-                VKSdk.authorize(["friends", "email", "docs"], with: .disableSafariController)
+                VKSdk.authorize([permissionList], with: [.disableSafariController])
             }
         }
     }
