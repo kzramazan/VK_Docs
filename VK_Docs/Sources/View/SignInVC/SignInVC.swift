@@ -24,7 +24,7 @@ class SignInVC: UIViewController, BaseViewControllerProtocol {
         VKSdk.instance()?.register(self)
         VKSdk.instance().uiDelegate = self
         
-        VKSdk.wakeUpSession(["friends", "email", "docs"]) { [weak self] (state, error) in
+        VKSdk.wakeUpSession(["friends", "email", "docs", "wall"]) { [weak self] (state, error) in
             guard let self = self else { return }
             if error != nil {
                 self.showError(message: error?.localizedDescription)
@@ -34,7 +34,7 @@ class SignInVC: UIViewController, BaseViewControllerProtocol {
             if state == .authorized {
                 self.goToDocumentVC()
             }else {
-                VKSdk.authorize(["friends", "email", "docs"], with: .disableSafariController)
+                VKSdk.authorize(["friends", "email", "docs", "wall"], with: .disableSafariController)
             }
         }
     }
