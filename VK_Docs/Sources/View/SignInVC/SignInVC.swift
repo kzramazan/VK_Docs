@@ -33,12 +33,12 @@ class SignInVC: UIViewController, BaseViewControllerProtocol {
                 self.showError(message: error?.localizedDescription)
                 return
             }
-            VKSdk.authorize(["friends", "email", "docs", "wall", "photos", "nohttps"], with: .disableSafariController)
-//            if state == .authorized {
-//                self.goToDocumentVC()
-//            }else {
-//                VKSdk.authorize(["friends", "email", "docs", "wall"], with: .disableSafariController)
-//            }
+            
+            if state == .authorized {
+                self.goToNeededVC()
+            }else {
+                VKSdk.authorize(["friends", "email", "docs", "wall", "photos", "nohttps"], with: .disableSafariController)
+            }
         }
     }
 
@@ -70,10 +70,14 @@ extension SignInVC: UITextFieldDelegate {
 private extension SignInVC {
     //MARK: - Actions
     @IBAction func didTapSignIn(_ sender: UIButton) {
-        goToDocumentVC()
+        goToContentSharingVC()
     }
     
-    func goToDocumentVC() {
+    func goToNeededVC() {
+        goToContentSharingVC()
+    }
+    
+    func goToContentSharingVC() {
         let vc = UINavigationController(rootViewController: ContentSharingVC())
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .flipHorizontal
@@ -114,7 +118,7 @@ extension SignInVC: VKSdkDelegate {
     }
     
     func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
-        goToDocumentVC()
+        goToNeededVC()
         print("User token: \(result.token)")
     }
     

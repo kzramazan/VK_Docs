@@ -45,7 +45,7 @@ class ContentSharingViewModel {
     func publishContent(message: String, image: UIImage, success: @escaping SuccessCompletion, failure: @escaping ErrorCompletion) {
         let vkImageParams = VKImageParameters()
         
-        VKApi.uploadWallPhotoRequest(prepareImage(image: image)!, parameters: vkImageParams, userId: CurrentUser.shared!.id, groupId: 0)?.execute(resultBlock: { (response) in
+        VKApi.uploadWallPhotoRequest(image, parameters: vkImageParams, userId: CurrentUser.shared!.id, groupId: 0)?.execute(resultBlock: { (response) in
             guard let dict = response?.json as? [Any], dict.count > 0, let photoArr = VKPhotoArray(array: dict) else { return failure(nil)}
             let vkPhoto = VKPhoto(dictionary: photoArr.firstObject()!.fields)
             
@@ -69,12 +69,5 @@ class ContentSharingViewModel {
         }, errorBlock: { (error) in
             failure(error.debugDescription)
         })
-    }
-    
-    private func prepareImage(image: UIImage) -> UIImage? {
-        let minValue = min(image.size.width, image.size.height)
-        let croppedImage = image.crop(size: CGSize(width: minValue, height: minValue))
-        let resizedImage = croppedImage.resize(newWidth: 300.0)
-        return resizedImage
     }
 }
