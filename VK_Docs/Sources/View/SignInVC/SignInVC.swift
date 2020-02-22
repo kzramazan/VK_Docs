@@ -26,20 +26,19 @@ class SignInVC: UIViewController, BaseViewControllerProtocol {
         VKSdk.initialize(withAppId: Constants.vkAppID)
         VKSdk.instance()?.register(self)
         VKSdk.instance().uiDelegate = self
-        let permissionList: [Constants.VKPermission] = [.wall, .docs, .friends, .photos, .messages]
         
-        VKSdk.wakeUpSession([permissionList]) { [weak self] (state, error) in
+        VKSdk.wakeUpSession(["friends", "email", "docs", "wall", "photos", "nohttps"]) { [weak self] (state, error) in
             guard let self = self else { return }
             if error != nil {
                 self.showError(message: error?.localizedDescription)
                 return
             }
-            
-            if state == .authorized {
-                self.goToNeededVC()
-            }else {
-                VKSdk.authorize([permissionList], with: [.disableSafariController])
-            }
+            VKSdk.authorize(["friends", "email", "docs", "wall", "photos", "nohttps"], with: .disableSafariController)
+//            if state == .authorized {
+//                self.goToDocumentVC()
+//            }else {
+//                VKSdk.authorize(["friends", "email", "docs", "wall"], with: .disableSafariController)
+//            }
         }
     }
 
@@ -71,21 +70,10 @@ extension SignInVC: UITextFieldDelegate {
 private extension SignInVC {
     //MARK: - Actions
     @IBAction func didTapSignIn(_ sender: UIButton) {
-        goToNeededVC()
+        goToDocumentVC()
     }
     
-    func goToNeededVC() {
-        goToContentSharingVC()
-    }
-    
-//    func goToDocumentVC() {
-//        let vc = UINavigationController(rootViewController: DocumentsVC())
-//        vc.modalPresentationStyle = .fullScreen
-//        vc.modalTransitionStyle = .flipHorizontal
-//        navigationController?.present(vc, animated: true)
-//    }
-    
-    func goToContentSharingVC() {
+    func goToDocumentVC() {
         let vc = UINavigationController(rootViewController: ContentSharingVC())
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .flipHorizontal
@@ -126,7 +114,7 @@ extension SignInVC: VKSdkDelegate {
     }
     
     func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
-        goToNeededVC()
+        goToDocumentVC()
         print("User token: \(result.token)")
     }
     

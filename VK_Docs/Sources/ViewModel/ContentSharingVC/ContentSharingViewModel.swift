@@ -13,23 +13,12 @@ import MobileCoreServices
 
 
 struct ContentWallAttachment {
-    var message: String?
-    private var attachments: [ContentAttachmentType: Any]?
+    var VK_API_MESSAGE: String?
+    var VK_API_ATTACHMENTS: String?
     
-    init(message: String?, attachments: [ContentAttachmentType: Any]? ) {
-        self.message = message
-        self.attachments = attachments
-    }
-    
-    func getAttachments() -> String? {
-        guard let attachments = attachments, !attachments.isEmpty else { return nil }
-        var result: String = ""
-        attachments.forEach({ (key, value) in
-            result.append("\(key)\(value)")
-            
-        })
-        
-        return result
+    init(message: String?, attachments: String? ) {
+        self.VK_API_MESSAGE = message
+        self.VK_API_ATTACHMENTS = attachments
     }
 }
 enum ContentWallParams: String, Hashable  {
@@ -55,19 +44,24 @@ enum ContentAttachmentType: String {
 class ContentSharingViewModel {
     func publishContent(message: String, image: UIImage, success: @escaping SuccessCompletion, failure: @escaping ErrorCompletion) {
         let vkImageParams = VKImageParameters()
+        
         VKApi.uploadWallPhotoRequest(prepareImage(image: image)!, parameters: vkImageParams, userId: CurrentUser.shared!.id, groupId: 0)?.execute(resultBlock: { (response) in
-            let photoInfo: VKPhoto = VKPhotoArray(array: response?.json as? [Any]).firstObject()
+            guard let dict = response?.json as? [Any], dict.count > 0, let photoArr = VKPhotoArray(array: dict) else { return failure(nil)}
+            let vkPhoto = VKPhoto(dictionary: photoArr.firstObject()!.fields)
             
-            let contentWall = ContentWallAttachment(message: message, attachments: [.photo: photoInfo.id.description])
             
-            var params: Dictionary = Dictionary<ContentWallParams, Any>()
-            params[.message] = contentWall.message
-            if let attachments = contentWall.getAttachments() {
-                params[.attachments] = attachments
-            }
+            guard vkPhoto?.photo_130 != nil, let attachmentPhoto = vkPhoto?.attachmentString else { return failure(nil)}
+            
+            
+            let contentWall = ContentWallAttachment(message: message, attachments: attachmentPhoto)
+
+            var params: Dictionary = Dictionary<AnyHashable, Any>()
+
+            params[VK_API_MESSAGE] = contentWall.VK_API_MESSAGE
+            params[VK_API_ATTACHMENTS] = contentWall.VK_API_ATTACHMENTS
             
             VKApi.wall()?.post(params)?.execute(resultBlock: { (response) in
-                
+
                 success()
             }, errorBlock: { (error) in
                 failure(error?.localizedDescription)
@@ -83,5 +77,4 @@ class ContentSharingViewModel {
         let resizedImage = croppedImage.resize(newWidth: 300.0)
         return resizedImage
     }
-    
 }
