@@ -10,7 +10,7 @@ import UIKit
 import VK_ios_sdk
 import FloatingPanel
 
-class GroupUnsubscribeVC: UIViewController, BaseViewControllerProtocol {
+class GroupUnsubscribeVC: UIViewController, BaseViewControllerProtocol, Refreshable {
     struct Constants {
         static let margin = 12
         static let numberOfColumns = 3
@@ -19,6 +19,12 @@ class GroupUnsubscribeVC: UIViewController, BaseViewControllerProtocol {
 
     private let viewModel = GroupUnsubscribeViewModel()
     private let bottomView = UIView()
+    
+    internal lazy var refreshControl: UIRefreshControl = {
+        let control = UIRefreshControl()
+        control.addTarget(self, action: #selector(getGroupList), for: .valueChanged)
+        return control
+    }()
     
     private lazy var unsubscribeButtonView: CustomCountableButtonView = {
         let button = CustomCountableButtonView()
@@ -38,12 +44,18 @@ class GroupUnsubscribeVC: UIViewController, BaseViewControllerProtocol {
         layout.scrollDirection = .vertical
         layout.minimumInteritemSpacing = 12
         layout.minimumLineSpacing = 12
+        
+        layout.sectionHeadersPinToVisibleBounds = false
+        layout.headerReferenceSize = CGSize(width: self.view.frame.width, height: 150)
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.backgroundColor = .clear
         view.alwaysBounceVertical = true
         view.showsVerticalScrollIndicator = false
         view.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         view.register(GroupUnsubscribeCollectionViewCell.self, forCellWithReuseIdentifier: GroupUnsubscribeCollectionViewCell.identifier)
+        view.register(CollectionViewHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: String(describing: CollectionViewHeaderView.self))
+        
+        view.refreshControl = refreshControl
         view.delegate = self
         view.dataSource = self
         
@@ -57,8 +69,6 @@ class GroupUnsubscribeVC: UIViewController, BaseViewControllerProtocol {
         configUI()
         bindViewModel()
         getGroupList()
-        
-        viewModel.deleteGroupList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -109,11 +119,24 @@ extension GroupUnsubscribeVC: UICollectionViewDelegate, UICollectionViewDataSour
         
     }
     
-//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//
-//    }
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: CollectionViewHeaderView.self), for: indexPath) as! CollectionViewHeaderView
+        cell.titleStr = "Отписаться от сообществ"
+        cell.descriptionStr = "Коснитесь и удерживайте, чтобы увидеть информацию о сообществе"
+        return cell
+    }
     
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+
+        // Get the view for the first header
+        let indexPath = IndexPath(row: 0, section: section)
+        let headerView = self.collectionView(collectionView, viewForSupplementaryElementOfKind: UICollectionView.elementKindSectionHeader, at: indexPath)
+
+        // Use this view to calculate the optimal size based on the collection view's width
+        return headerView.systemLayoutSizeFitting(CGSize(width: collectionView.frame.width, height: UIView.layoutFittingExpandedSize.height),
+                                                  withHorizontalFittingPriority: .required, // Width is fixed
+                                                  verticalFittingPriority: .fittingSizeLevel) // Height can be as large as needed
+    }
 }
 
 private extension GroupUnsubscribeVC {
@@ -149,18 +172,18 @@ private extension GroupUnsubscribeVC {
     
     
     //MARK: - Requests
-    func getGroupList() {
-        viewModel.fetchGroupList(success: {
-            
+    @objc func getGroupList() {
+        self.startRefreshing()
+        viewModel.fetchGroupList(success: { [weak self] in
+            guard let self = self else { return }
+            self.stopRefreshing()
             self.collectionView.reloadData()
         }) { [weak self] (error) in
             guard let self = self else { return }
+            self.stopRefreshing()
             self.showError(message: error)
         }
     }
-    
-    
-    
     
     //MARK: - ConfigUI
     func configUI() {

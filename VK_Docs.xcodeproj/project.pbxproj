@@ -17,6 +17,8 @@
 		3457D5F52403993D00CCA1F2 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457D5F42403993D00CCA1F2 /* UIView+Extension.swift */; };
 		3457D5F72403F54000CCA1F2 /* CustomCountableButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457D5F62403F54000CCA1F2 /* CustomCountableButtonView.swift */; };
 		3457D5F92404608800CCA1F2 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457D5F82404608800CCA1F2 /* Int+Extension.swift */; };
+		3457D5FB2404EAA400CCA1F2 /* CollectionViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457D5FA2404EAA400CCA1F2 /* CollectionViewHeaderView.swift */; };
+		3457D5FD2404F5B700CCA1F2 /* CustomFloatingGroupInfoPanelLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457D5FC2404F5B700CCA1F2 /* CustomFloatingGroupInfoPanelLayout.swift */; };
 		346494A423FB1717002DAE01 /* BaseViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346494A323FB1717002DAE01 /* BaseViewControllerProtocol.swift */; };
 		346494A623FB23EA002DAE01 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346494A523FB23EA002DAE01 /* Units.swift */; };
 		346494A823FB284B002DAE01 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346494A723FB284B002DAE01 /* DateUtility.swift */; };
@@ -62,6 +64,8 @@
 		3457D5F42403993D00CCA1F2 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		3457D5F62403F54000CCA1F2 /* CustomCountableButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCountableButtonView.swift; sourceTree = "<group>"; };
 		3457D5F82404608800CCA1F2 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		3457D5FA2404EAA400CCA1F2 /* CollectionViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHeaderView.swift; sourceTree = "<group>"; };
+		3457D5FC2404F5B700CCA1F2 /* CustomFloatingGroupInfoPanelLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFloatingGroupInfoPanelLayout.swift; sourceTree = "<group>"; };
 		346494A323FB1717002DAE01 /* BaseViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerProtocol.swift; sourceTree = "<group>"; };
 		346494A523FB23EA002DAE01 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
 		346494A723FB284B002DAE01 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 				346494CF23FFEDD1002DAE01 /* CustomFloatingContentSharingPanelLayout.swift */,
 				346494D124002EEF002DAE01 /* Camera.swift */,
 				3457D5F62403F54000CCA1F2 /* CustomCountableButtonView.swift */,
+				3457D5FA2404EAA400CCA1F2 /* CollectionViewHeaderView.swift */,
+				3457D5FC2404F5B700CCA1F2 /* CustomFloatingGroupInfoPanelLayout.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -464,6 +470,7 @@
 				34D1A1EE23F98CCA000F450D /* AppDelegate.swift in Sources */,
 				34D1A20323F9A526000F450D /* SignInVC.swift in Sources */,
 				3457D5F72403F54000CCA1F2 /* CustomCountableButtonView.swift in Sources */,
+				3457D5FD2404F5B700CCA1F2 /* CustomFloatingGroupInfoPanelLayout.swift in Sources */,
 				3457D5F0240165F200CCA1F2 /* GroupUnsubscribeCollectionViewCell.swift in Sources */,
 				346494C723FE7F95002DAE01 /* UIFont+Extension.swift in Sources */,
 				3457D5E92401599500CCA1F2 /* GroupInfoPopupVC.swift in Sources */,
@@ -473,6 +480,7 @@
 				346494A823FB284B002DAE01 /* DateUtility.swift in Sources */,
 				3457D5E02401586500CCA1F2 /* GroupUnsubscribeVC.swift in Sources */,
 				346494CE23FFADBC002DAE01 /* FloatablePanel.swift in Sources */,
+				3457D5FB2404EAA400CCA1F2 /* CollectionViewHeaderView.swift in Sources */,
 				3457D5F52403993D00CCA1F2 /* UIView+Extension.swift in Sources */,
 				34968C4D23FB0AFC00D70CFE /* UIViewController+Extension.swift in Sources */,
 				346494C223FE7C1E002DAE01 /* ContentSharingVC.swift in Sources */,

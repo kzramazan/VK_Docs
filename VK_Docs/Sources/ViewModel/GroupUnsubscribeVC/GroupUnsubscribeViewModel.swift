@@ -28,7 +28,6 @@ class GroupUnsubscribeViewModel {
             print(groups.count)
             for i in 0...groups.count - 1 {
                 let row = Int(i)
-                print(groups.object(at: row)?.id)
                 self.groupList.append(groups.object(at: row))
                 self.groupCellSelected.append(false)
             }
@@ -36,31 +35,19 @@ class GroupUnsubscribeViewModel {
         }, errorBlock: { (error) in
             failure(error?.localizedDescription)
         })
+        
+        
     }
     
-//    func getDetailedGroupInfo(groupID: Int, success: @escaping () -> Void, failure: @escaping ErrorCompletion) {
-//        VKApiGroups.init().getById(["id": groupID, ])?.execute(resultBlock: { (response) in
-//
-//        }, errorBlock: { (error) in
-//            failure(error?.localizedDescription)
-//        })
-//    }
+    func deleteGroupList(success: @escaping () -> Void, failure: @escaping ErrorCompletion) {
+        //Doesn't work
+        
+    }
     
-    
-//    Optional(88229325)
-//    Optional(97324424)
-//    Optional(100611136)
-//    Optional(101241966)
-//    Optional(7710305)
-//    Optional(166319830)
-//    Optional(227788442)
-    func deleteGroupList() {
-        VKApiGroups.init().prepareRequest(withMethodName: "groups.leave", parameters: [VK_API_GROUP_ID: 101241966.description])?.execute(resultBlock: { (response) in
-            
-            print("Response: ", response)
-        }, errorBlock: { (error) in
-            print("Error: ", error?.localizedDescription)
-        })
+    private func getRowByID(id: Int) -> Int? {
+        return groupList.firstIndex { (vkGroup) -> Bool in
+            return Int(truncating: vkGroup.id) == id
+        }
     }
     
     
