@@ -2,14 +2,12 @@ PODS:
   - Alamofire (4.8.2)
   - FloatingPanel (1.7.2)
   - SnapKit (5.0.1)
-  - SVProgressHUD (2.2.5)
   - VK-ios-sdk (1.5.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.8.2)
   - FloatingPanel
   - SnapKit
-  - SVProgressHUD
   - VK-ios-sdk
 
 SPEC REPOS:
@@ -17,16 +15,14 @@ SPEC REPOS:
     - Alamofire
     - FloatingPanel
     - SnapKit
-    - SVProgressHUD
     - VK-ios-sdk
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   FloatingPanel: b275a35d0a09be4bd37025e710a6a1d063bfc161
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
-  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   VK-ios-sdk: 62a10b6571fbcda0657f455fedce7fedf55b4cd0
 
-PODFILE CHECKSUM: 1b74fd63739b0e8670b0d29d57ca5e11bdf6e0f1
+PODFILE CHECKSUM: 04fe4dcc065a6d7143f9c4155fd9dbda436d3840
 
 COCOAPODS: 1.8.4

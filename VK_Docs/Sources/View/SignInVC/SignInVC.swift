@@ -11,7 +11,7 @@ import VK_ios_sdk
 typealias SuccessCompletion = (() -> Void)
 typealias ErrorCompletion = ((String?) -> Void)
 
-class SignInVC: UIViewController, BaseViewControllerProtocol {
+class SignInVC: UIViewController {
     
     @IBOutlet weak var backgrounView: UIView!
     @IBOutlet weak var loginField: UITextField!
@@ -30,7 +30,7 @@ class SignInVC: UIViewController, BaseViewControllerProtocol {
         VKSdk.wakeUpSession(["friends", "email", "docs", "wall", "photos", "nohttps"]) { [weak self] (state, error) in
             guard let self = self else { return }
             if error != nil {
-                self.showError(message: error?.localizedDescription)
+                print(error?.localizedDescription)
                 return
             }
             

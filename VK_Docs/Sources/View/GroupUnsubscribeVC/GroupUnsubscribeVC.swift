@@ -10,7 +10,7 @@ import UIKit
 import VK_ios_sdk
 import FloatingPanel
 
-class GroupUnsubscribeVC: UIViewController, BaseViewControllerProtocol, Refreshable {
+class GroupUnsubscribeVC: UIViewController, Refreshable {
     struct Constants {
         static let margin = 12
         static let numberOfColumns = 3
@@ -181,7 +181,7 @@ private extension GroupUnsubscribeVC {
         }) { [weak self] (error) in
             guard let self = self else { return }
             self.stopRefreshing()
-            self.showError(message: error)
+            print(error)
         }
     }
     
