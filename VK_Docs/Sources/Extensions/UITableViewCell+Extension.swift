@@ -14,3 +14,10 @@ public extension UITableViewCell {
         return result
     }
 }
+
+public extension UICollectionViewCell {
+    class var identifier: String {
+        let result = String(describing: self)
+        return result
+    }
+}

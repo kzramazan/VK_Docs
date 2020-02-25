@@ -53,7 +53,7 @@ extension AppDelegate {
     }
     
     func setVKAuth() {
-        let permissionList: [Constants.VKPermission] = [.friends, .email, .docs, .wall]
+//        let permissionList: [Constants.VKPermission] = [.friends, .email, .docs, .wall]
         
         setupRootViewController()
 //        VKSdk.wakeUpSession(permissionList) { [weak self] (state, error) in

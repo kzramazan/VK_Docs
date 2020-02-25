@@ -78,7 +78,7 @@ private extension SignInVC {
     }
     
     func goToContentSharingVC() {
-        let vc = UINavigationController(rootViewController: ContentSharingVC())
+        let vc = UINavigationController(rootViewController: GroupUnsubscribeVC())
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .flipHorizontal
         navigationController?.present(vc, animated: true)
@@ -119,7 +119,7 @@ extension SignInVC: VKSdkDelegate {
     
     func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
         goToNeededVC()
-        print("User token: \(result.token)")
+        print("User token: \(String(describing: result.token))")
     }
     
     func vkSdkReceivedNewToken(newToken: VKAccessToken) {

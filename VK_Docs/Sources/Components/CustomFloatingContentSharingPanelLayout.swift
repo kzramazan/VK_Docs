@@ -27,3 +27,24 @@ class CustomFloatingContentSharingPanelLayout: FloatingPanelLayout {
     
     
 }
+
+class CustomFloatingGroupInfoPanelLayout: FloatingPanelLayout {
+    var contentHeight: CGFloat = 0
+    
+    var initialPosition: FloatingPanelPosition {
+        return .full
+    }
+    
+    var supportedPositions: Set<FloatingPanelPosition> = [.full]
+    
+    func insetFor(position: FloatingPanelPosition) -> CGFloat? {
+        switch position {
+        case .full:
+            return UIScreen.main.bounds.height > contentHeight ? UIScreen.main.bounds.height - contentHeight : UIScreen.main.bounds.height
+        default:
+            return nil
+        }
+    }
+    
+    
+}

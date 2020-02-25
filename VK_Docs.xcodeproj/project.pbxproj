@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3457D5E02401586500CCA1F2 /* GroupUnsubscribeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457D5DE2401586500CCA1F2 /* GroupUnsubscribeVC.swift */; };
+		3457D5E12401586500CCA1F2 /* GroupUnsubscribeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3457D5DF2401586500CCA1F2 /* GroupUnsubscribeVC.xib */; };
+		3457D5E92401599500CCA1F2 /* GroupInfoPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457D5E72401599500CCA1F2 /* GroupInfoPopupVC.swift */; };
+		3457D5EA2401599500CCA1F2 /* GroupInfoPopupVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3457D5E82401599500CCA1F2 /* GroupInfoPopupVC.xib */; };
+		3457D5ED24015B9100CCA1F2 /* GroupUnsubscribeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457D5EC24015B9100CCA1F2 /* GroupUnsubscribeViewModel.swift */; };
+		3457D5F0240165F200CCA1F2 /* GroupUnsubscribeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457D5EE240165F200CCA1F2 /* GroupUnsubscribeCollectionViewCell.swift */; };
+		3457D5F1240165F200CCA1F2 /* GroupUnsubscribeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3457D5EF240165F200CCA1F2 /* GroupUnsubscribeCollectionViewCell.xib */; };
+		3457D5F52403993D00CCA1F2 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457D5F42403993D00CCA1F2 /* UIView+Extension.swift */; };
+		3457D5F72403F54000CCA1F2 /* CustomCountableButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457D5F62403F54000CCA1F2 /* CustomCountableButtonView.swift */; };
+		3457D5F92404608800CCA1F2 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457D5F82404608800CCA1F2 /* Int+Extension.swift */; };
 		346494A423FB1717002DAE01 /* BaseViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346494A323FB1717002DAE01 /* BaseViewControllerProtocol.swift */; };
 		346494A623FB23EA002DAE01 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346494A523FB23EA002DAE01 /* Units.swift */; };
 		346494A823FB284B002DAE01 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346494A723FB284B002DAE01 /* DateUtility.swift */; };
@@ -42,6 +52,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3457D5DE2401586500CCA1F2 /* GroupUnsubscribeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupUnsubscribeVC.swift; sourceTree = "<group>"; };
+		3457D5DF2401586500CCA1F2 /* GroupUnsubscribeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupUnsubscribeVC.xib; sourceTree = "<group>"; };
+		3457D5E72401599500CCA1F2 /* GroupInfoPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupInfoPopupVC.swift; sourceTree = "<group>"; };
+		3457D5E82401599500CCA1F2 /* GroupInfoPopupVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupInfoPopupVC.xib; sourceTree = "<group>"; };
+		3457D5EC24015B9100CCA1F2 /* GroupUnsubscribeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupUnsubscribeViewModel.swift; sourceTree = "<group>"; };
+		3457D5EE240165F200CCA1F2 /* GroupUnsubscribeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupUnsubscribeCollectionViewCell.swift; sourceTree = "<group>"; };
+		3457D5EF240165F200CCA1F2 /* GroupUnsubscribeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupUnsubscribeCollectionViewCell.xib; sourceTree = "<group>"; };
+		3457D5F42403993D00CCA1F2 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		3457D5F62403F54000CCA1F2 /* CustomCountableButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCountableButtonView.swift; sourceTree = "<group>"; };
+		3457D5F82404608800CCA1F2 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		346494A323FB1717002DAE01 /* BaseViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerProtocol.swift; sourceTree = "<group>"; };
 		346494A523FB23EA002DAE01 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
 		346494A723FB284B002DAE01 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
@@ -92,9 +112,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3457D5DD2401583800CCA1F2 /* GroupUnsubscribeVC */ = {
+			isa = PBXGroup;
+			children = (
+				3457D5E2240158CA00CCA1F2 /* Submodules */,
+				3457D5DE2401586500CCA1F2 /* GroupUnsubscribeVC.swift */,
+				3457D5DF2401586500CCA1F2 /* GroupUnsubscribeVC.xib */,
+			);
+			path = GroupUnsubscribeVC;
+			sourceTree = "<group>";
+		};
+		3457D5E2240158CA00CCA1F2 /* Submodules */ = {
+			isa = PBXGroup;
+			children = (
+				3457D5E72401599500CCA1F2 /* GroupInfoPopupVC.swift */,
+				3457D5E82401599500CCA1F2 /* GroupInfoPopupVC.xib */,
+				3457D5EE240165F200CCA1F2 /* GroupUnsubscribeCollectionViewCell.swift */,
+				3457D5EF240165F200CCA1F2 /* GroupUnsubscribeCollectionViewCell.xib */,
+			);
+			path = Submodules;
+			sourceTree = "<group>";
+		};
+		3457D5EB24015B7F00CCA1F2 /* GroupUnsubscribeVC */ = {
+			isa = PBXGroup;
+			children = (
+				3457D5EC24015B9100CCA1F2 /* GroupUnsubscribeViewModel.swift */,
+			);
+			path = GroupUnsubscribeVC;
+			sourceTree = "<group>";
+		};
 		3464949E23FB1494002DAE01 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				3457D5EB24015B7F00CCA1F2 /* GroupUnsubscribeVC */,
 				346494D3240035B2002DAE01 /* ContentSharingVC */,
 			);
 			path = ViewModel;
@@ -108,6 +158,7 @@
 				346494CD23FFADBC002DAE01 /* FloatablePanel.swift */,
 				346494CF23FFEDD1002DAE01 /* CustomFloatingContentSharingPanelLayout.swift */,
 				346494D124002EEF002DAE01 /* Camera.swift */,
+				3457D5F62403F54000CCA1F2 /* CustomCountableButtonView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -176,6 +227,7 @@
 		34968C3F23FAF3DB00D70CFE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3457D5DD2401583800CCA1F2 /* GroupUnsubscribeVC */,
 				346494BF23FE7C08002DAE01 /* ContentSharingVC */,
 				346494BC23FD2B41002DAE01 /* SignInVC */,
 			);
@@ -191,6 +243,8 @@
 				346494A323FB1717002DAE01 /* BaseViewControllerProtocol.swift */,
 				346494B423FBF644002DAE01 /* UIImageView+Extension.swift */,
 				346494C623FE7F95002DAE01 /* UIFont+Extension.swift */,
+				3457D5F42403993D00CCA1F2 /* UIView+Extension.swift */,
+				3457D5F82404608800CCA1F2 /* Int+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -338,11 +392,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3457D5EA2401599500CCA1F2 /* GroupInfoPopupVC.xib in Resources */,
 				34D1A1FA23F98CCB000F450D /* LaunchScreen.storyboard in Resources */,
 				34D1A1F723F98CCB000F450D /* Assets.xcassets in Resources */,
 				34D1A20823F9A5FB000F450D /* SignInVC.xib in Resources */,
+				3457D5F1240165F200CCA1F2 /* GroupUnsubscribeCollectionViewCell.xib in Resources */,
 				34D1A1F523F98CCA000F450D /* Main.storyboard in Resources */,
 				346494CC23FE8948002DAE01 /* ContentSharingPopupVC.xib in Resources */,
+				3457D5E12401586500CCA1F2 /* GroupUnsubscribeVC.xib in Resources */,
 				346494C323FE7C1E002DAE01 /* ContentSharingVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				346494A623FB23EA002DAE01 /* Units.swift in Sources */,
+				3457D5F92404608800CCA1F2 /* Int+Extension.swift in Sources */,
 				34D1A20F23F9D41D000F450D /* CurrentUser.swift in Sources */,
 				346494C523FE7F37002DAE01 /* ListPlaceholderView.swift in Sources */,
 				346494D023FFEDD1002DAE01 /* CustomFloatingContentSharingPanelLayout.swift in Sources */,
@@ -405,18 +463,24 @@
 				346494D5240035BE002DAE01 /* ContentSharingViewModel.swift in Sources */,
 				34D1A1EE23F98CCA000F450D /* AppDelegate.swift in Sources */,
 				34D1A20323F9A526000F450D /* SignInVC.swift in Sources */,
+				3457D5F72403F54000CCA1F2 /* CustomCountableButtonView.swift in Sources */,
+				3457D5F0240165F200CCA1F2 /* GroupUnsubscribeCollectionViewCell.swift in Sources */,
 				346494C723FE7F95002DAE01 /* UIFont+Extension.swift in Sources */,
+				3457D5E92401599500CCA1F2 /* GroupInfoPopupVC.swift in Sources */,
 				34D1A20C23F9AEA4000F450D /* UIColor+Extension.swift in Sources */,
 				346494B523FBF644002DAE01 /* UIImageView+Extension.swift in Sources */,
 				346494BB23FD105A002DAE01 /* Refreshable.swift in Sources */,
 				346494A823FB284B002DAE01 /* DateUtility.swift in Sources */,
+				3457D5E02401586500CCA1F2 /* GroupUnsubscribeVC.swift in Sources */,
 				346494CE23FFADBC002DAE01 /* FloatablePanel.swift in Sources */,
+				3457D5F52403993D00CCA1F2 /* UIView+Extension.swift in Sources */,
 				34968C4D23FB0AFC00D70CFE /* UIViewController+Extension.swift in Sources */,
 				346494C223FE7C1E002DAE01 /* ContentSharingVC.swift in Sources */,
 				346494B123FBF3C3002DAE01 /* WebViewOpenable.swift in Sources */,
 				346494AA23FB2CC4002DAE01 /* DocumentsProvider.swift in Sources */,
 				346494A423FB1717002DAE01 /* BaseViewControllerProtocol.swift in Sources */,
 				346494D724004C4A002DAE01 /* UIImage+Extension.swift in Sources */,
+				3457D5ED24015B9100CCA1F2 /* GroupUnsubscribeViewModel.swift in Sources */,
 				346494D224002EEF002DAE01 /* Camera.swift in Sources */,
 				34D1A21223FA3ED1000F450D /* Constants.swift in Sources */,
 				346494AD23FBEBA9002DAE01 /* WebViewController.swift in Sources */,
