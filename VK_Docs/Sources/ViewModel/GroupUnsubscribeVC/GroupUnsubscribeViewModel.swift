@@ -9,8 +9,10 @@
 import UIKit
 import VK_ios_sdk
 import Pods_VK_Docs
-
+import RxSwift
 class GroupUnsubscribeViewModel {
+    let disposeBag = DisposeBag()
+    
     private var groupList: [VKGroup] = []
     
     private var groupCellSelected: [Bool] = []
@@ -25,18 +27,31 @@ class GroupUnsubscribeViewModel {
             }
             self.groupList.removeAll()
             self.groupCellSelected.removeAll()
-            print(groups.count)
             for i in 0...groups.count - 1 {
                 let row = Int(i)
                 self.groupList.append(groups.object(at: row))
+                print(groups.object(at: row)?.id)
                 self.groupCellSelected.append(false)
             }
             success()
         }, errorBlock: { (error) in
             failure(error?.localizedDescription)
         })
-        
-        
+    }
+    
+    func getNumberOfFriends(groupID: Int, success: @escaping (Int) -> Void, failure: @escaping ErrorCompletion) {
+        self.getNumberOfFriendsApi(groupID: groupID)
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { result in
+                guard let response = result.response else { return }
+                success(response.count)
+            }, onError: { error in
+                failure(error.localizedDescription)
+            }).disposed(by: disposeBag)
+    }
+    
+    private func getNumberOfFriendsApi(groupID: Int) -> Observable<VKCustomResult<VKMembersResponse>> {
+        return ApiClient.shared.request(VKCustomGroups.getMembers(groupID.description))
     }
     
     func deleteGroupList(success: @escaping () -> Void, failure: @escaping ErrorCompletion) {

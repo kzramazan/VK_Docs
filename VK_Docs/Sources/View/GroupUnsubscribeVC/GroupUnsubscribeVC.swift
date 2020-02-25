@@ -153,8 +153,19 @@ private extension GroupUnsubscribeVC {
     }
     
     func showDetailedGroupInfo(vkGroup: VKGroup) {
+        viewModel.getNumberOfFriends(groupID: Int(truncating: vkGroup.id), success: { [weak self] (counter) in
+            guard let self = self else { return }
+            self.showPopupGroupInfo(vkGroup: vkGroup, friends: counter)
+        }, failure: { [weak self] error in
+            guard let self = self else { return }
+            self.showPopupGroupInfo(vkGroup: vkGroup, friends: nil)
+        })
+    }
+    
+    func showPopupGroupInfo(vkGroup: VKGroup, friends: Int?) {
         let groupInfoPopupVC: FloatingPanelController = {
             let vc = GroupInfoPopupVC(vkGroup: vkGroup)
+            vc.friends = friends
             let fvc = FloatingPanelController()
             fvc.contentMode = .fitToBounds
             fvc.configure(delegate: vc, vc: vc)

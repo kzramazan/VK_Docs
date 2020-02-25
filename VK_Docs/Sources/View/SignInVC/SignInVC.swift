@@ -27,18 +27,18 @@ class SignInVC: UIViewController {
         VKSdk.instance()?.register(self)
         VKSdk.instance().uiDelegate = self
         
-        VKSdk.wakeUpSession(["friends", "email", "docs", "wall", "photos", "nohttps"]) { [weak self] (state, error) in
+        VKSdk.wakeUpSession(["friends", "email", "docs", "wall", "photos"]) { [weak self] (state, error) in
             guard let self = self else { return }
             if error != nil {
                 print(error?.localizedDescription)
                 return
             }
-            
-            if state == .authorized {
-                self.goToNeededVC()
-            }else {
-                VKSdk.authorize(["friends", "email", "docs", "wall", "photos", "nohttps"], with: .disableSafariController)
-            }
+            VKSdk.authorize(["friends", "email", "docs", "wall", "photos"], with: .disableSafariController)
+//            if state == .authorized {
+//                self.goToNeededVC()
+//            }else {
+//                VKSdk.authorize(["friends", "email", "docs", "wall", "photos", "nohttps"], with: .disableSafariController)
+//            }
         }
     }
 
@@ -70,14 +70,14 @@ extension SignInVC: UITextFieldDelegate {
 private extension SignInVC {
     //MARK: - Actions
     @IBAction func didTapSignIn(_ sender: UIButton) {
-        goToContentSharingVC()
+        goToNeededVC()
     }
     
     func goToNeededVC() {
-        goToContentSharingVC()
+        goToCityShopsVC()
     }
     
-    func goToContentSharingVC() {
+    func goToCityShopsVC() {
         let vc = UINavigationController(rootViewController: GroupUnsubscribeVC())
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .flipHorizontal
@@ -118,13 +118,19 @@ extension SignInVC: VKSdkDelegate {
     }
     
     func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
+        UserDefaults.standard.set(result.token.accessToken, forKey: Constants.tokenKey)
+        UserDefaults.standard.synchronize()
+        
+        print("User token: \(String(describing: result.token.accessToken))")
+        Session.shared.ticket = result.token.accessToken
         goToNeededVC()
-        print("User token: \(String(describing: result.token))")
+        
     }
     
     func vkSdkReceivedNewToken(newToken: VKAccessToken) {
-        UserDefaults.standard.set(newToken, forKey: "TOKEN_KEY")
+        UserDefaults.standard.set(newToken, forKey: Constants.tokenKey)
         UserDefaults.standard.synchronize()
-        print(newToken)
+        Session.shared.ticket = newToken.accessToken
+        print("Token Key: ", newToken)
     }
 }

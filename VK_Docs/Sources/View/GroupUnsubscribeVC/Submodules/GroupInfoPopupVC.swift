@@ -21,6 +21,8 @@ class GroupInfoPopupVC: UIViewController {
     @IBOutlet weak var descriptionImageView: UIImageView!
     private let vkGroup: VKGroup
     
+    var friends: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -59,6 +61,10 @@ private extension GroupInfoPopupVC {
         openButton.layer.cornerRadius = openButton.frame.width / 35
         titleLabel.text = vkGroup.name ?? "Без названия"
         followersLabel.text = "\(Int(truncating: vkGroup.members_count ?? 0).roundedWithAbbreviations) подписчиков"
+        if let friends = friends, friends > 0 {
+            followersLabel.text = "\(followersLabel.text!) · \(friends) друзей "
+        }
+        
         descriptionLabel.text = vkGroup.description
         descriptionImageView.isHidden = (vkGroup.description == nil) || (vkGroup.description.isEmpty)
         
