@@ -51,7 +51,7 @@ class GroupUnsubscribeViewModel {
     }
     
     private func getNumberOfFriendsApi(groupID: Int) -> Observable<VKCustomResult<String>> {
-        return ApiClient.shared.request(VKCustomGroups.getMembers(groupID.description))
+        return ApiClient.shared.request(VKCustomGroupsRouter.getMembers(groupID.description))
     }
     
     func deleteGroupList(success: @escaping () -> Void, failure: @escaping ErrorCompletion) {

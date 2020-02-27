@@ -12,6 +12,10 @@ struct VKCustomResult<T: Codable>: Codable {
     let response: VKCustomResponse<T>?
 }
 
+struct VKCustomSingleResult<T: Codable>: Codable {
+    let response: T?
+}
+
 struct VKCustomResponse<T: Codable>: Codable {
     let count: Int
     let items: T
