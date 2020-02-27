@@ -6,7 +6,6 @@ target 'VK_Docs' do
 	pod "VK-ios-sdk"
 	pod "SnapKit"
 	pod 'Alamofire', '~> 4.8.2'
-	pod 'FloatingPanel'
 	pod 'RxSwift'
 
 end

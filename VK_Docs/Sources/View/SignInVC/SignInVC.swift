@@ -74,11 +74,11 @@ private extension SignInVC {
     }
     
     func goToNeededVC() {
-        goToCityShopsVC()
+        goToPhotoAlbumsVC()
     }
     
-    func goToCityShopsVC() {
-        let vc = UINavigationController(rootViewController: GroupUnsubscribeVC())
+    func goToPhotoAlbumsVC() {
+        let vc = UINavigationController(rootViewController: PhotoAlbumsVC())
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .flipHorizontal
         navigationController?.present(vc, animated: true)

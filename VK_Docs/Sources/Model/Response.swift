@@ -9,9 +9,10 @@
 import Foundation
 
 struct VKCustomResult<T: Codable>: Codable {
-    let response: T?
+    let response: VKCustomResponse<T>?
 }
 
-struct VKMembersResponse: Codable {
+struct VKCustomResponse<T: Codable>: Codable {
     let count: Int
+    let items: T
 }

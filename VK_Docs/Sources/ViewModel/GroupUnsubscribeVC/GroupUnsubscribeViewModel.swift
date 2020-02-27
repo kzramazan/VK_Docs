@@ -50,7 +50,7 @@ class GroupUnsubscribeViewModel {
             }).disposed(by: disposeBag)
     }
     
-    private func getNumberOfFriendsApi(groupID: Int) -> Observable<VKCustomResult<VKMembersResponse>> {
+    private func getNumberOfFriendsApi(groupID: Int) -> Observable<VKCustomResult<String>> {
         return ApiClient.shared.request(VKCustomGroups.getMembers(groupID.description))
     }
     

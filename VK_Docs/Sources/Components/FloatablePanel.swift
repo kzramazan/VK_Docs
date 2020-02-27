@@ -6,17 +6,17 @@
 //  Copyright © 2020 Ramazan Kazybek. All rights reserved.
 //
 
-import UIKit
-import FloatingPanel
-
-extension FloatingPanelController {
-    func configure(delegate: FloatingPanelControllerDelegate, vc: UIViewController) {
-        self.delegate = delegate
-        set(contentViewController: vc)
-        isRemovalInteractionEnabled = true
-        view.backgroundColor = .clear
-        surfaceView.backgroundColor = .clear
-    }
-}
+//import UIKit
+//import FloatingPanel
+//
+//extension FloatingPanelController {
+//    func configure(delegate: FloatingPanelControllerDelegate, vc: UIViewController) {
+//        self.delegate = delegate
+//        set(contentViewController: vc)
+//        isRemovalInteractionEnabled = true
+//        view.backgroundColor = .clear
+//        surfaceView.backgroundColor = .clear
+//    }
+//}
 
 
