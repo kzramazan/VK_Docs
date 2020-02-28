@@ -141,7 +141,6 @@ private extension CertainAlbumPhotosVC {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "chevron_left"), style: .plain, target: self, action: #selector(backButtonTapped))
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "add_outline"), style: .plain, target: self, action: #selector(addPhotoToAlbumTapped))
-        
         view.addSubview(collectionView)
         
         makeConstraints()

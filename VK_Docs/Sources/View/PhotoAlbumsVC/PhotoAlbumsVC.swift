@@ -112,6 +112,9 @@ private extension PhotoAlbumsVC {
     }
     //MARK: - Methods
     func goToCertainAlbumVC(with id: Int) {
+        if !isDoneBtnHidden {
+            isDoneBtnHidden = true
+        }
         let vc = CertainAlbumPhotosVC(albumID: id)
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -167,7 +170,9 @@ private extension PhotoAlbumsVC {
     }
     
     @objc func changeAlbumTapped() {
-        isDoneBtnHidden = false
+        if isDoneBtnHidden {
+            isDoneBtnHidden = false
+        }
     }
     
     
@@ -180,6 +185,10 @@ private extension PhotoAlbumsVC {
         
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Изменить", style: .plain, target: self, action: #selector(changeAlbumTapped))
+        
+        let longGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(changeAlbumTapped))
+        
+        collectionView.addGestureRecognizer(longGestureRecognizer)
         
         makeConstraints()
     }
