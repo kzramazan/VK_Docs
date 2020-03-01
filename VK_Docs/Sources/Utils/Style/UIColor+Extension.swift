@@ -48,5 +48,6 @@ extension Tint {
     static let progressViewColor = UIColor(hex: "#2A6BCB")
     static let emptyViewSubtitleColor = UIColor(hex: "#818C99")
     static let customButtonColor = UIColor(hex: "#4986CC")
+    static let customButtonDisabledColor = UIColor(hex: "#001C3D")
     static let textViewBackgroundColor = UIColor(hex: "#F2F3F5")
 }

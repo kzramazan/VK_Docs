@@ -12,10 +12,13 @@ enum VKCustomGroupsRouter: ApiRequest {
     var identifier: String { return "groups" }
     
     case getMembers(String)
+    case getAddresses(String)
+    ///CityID
+    case searchShops(String)
     
     var method: RequestType {
         switch self {
-        case .getMembers:
+        case .getMembers, .getAddresses, .searchShops:
             return .GET
         }
     }
@@ -24,6 +27,10 @@ enum VKCustomGroupsRouter: ApiRequest {
         switch self {
         case .getMembers:
             return "getMembers"
+        case .getAddresses:
+            return "getAddresses"
+        case .searchShops:
+            return "search"
         }
     }
     
@@ -31,6 +38,10 @@ enum VKCustomGroupsRouter: ApiRequest {
         switch self {
         case .getMembers(let id):
             return ["filter": "friends", "group_id": id]
+        case .getAddresses(let id):
+            return ["group_id": id]
+        case .searchShops(let cityID):
+            return ["q":" ", "type": "groups", "city_id": cityID, "market": "1", "sort": "2"]
         }
     }
 }
@@ -91,5 +102,64 @@ enum VKCustomPhotosRouter: ApiRequest {
     }
 }
 
+enum VKCustomDatabaseRouter: ApiRequest {
+    var identifier: String { return "database" }
+    
+    case getCities
+    
+    var method: RequestType {
+        switch self {
+        case .getCities:
+            return .GET
+        }
+    }
+    
+    var path: String {
+        switch self {
+        case .getCities:
+            return "getCities"
+        }
+    }
+    
+    var parameters: [String : String] {
+        switch self {
+        case .getCities:
+            return ["country_id": "1", "count": "100"]
+        }
+    }
+}
 
 
+enum VKCustomMarketRouter: ApiRequest {
+    var identifier: String { return "market" }
+    
+    ///Возвращает список товаров в сообществе.
+    case get(String)
+    ///owner_id, good_id
+    case getById(String, String)
+    
+    var method: RequestType {
+        switch self {
+        case .get, .getById:
+            return .GET
+        }
+    }
+    
+    var path: String {
+        switch self {
+        case .get:
+            return "get"
+        case .getById:
+            return "getById"
+        }
+    }
+    
+    var parameters: [String : String] {
+        switch self {
+        case .get(let id):
+            return ["country_id": "RU", "need_all": "1", "owner_id": "-\(id)"]
+        case .getById(let ownerID, let goodID):
+            return ["item_ids": "-\(ownerID)_\(goodID)"]
+        }
+    }
+}

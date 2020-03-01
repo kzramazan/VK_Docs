@@ -13,9 +13,11 @@ class CertainAlbumPhotosViewModel {
     private let disposeBag = DisposeBag()
     private var albumPhotos = [VKCustomAlbumPhoto]()
     let albumID: Int
+    
     init(albumID: Int) {
         self.albumID = albumID
     }
+    
     func getPhotosInAlbum(albumID: Int, success: @escaping SuccessCompletion, failure: @escaping ErrorCompletion) {
         guard let ownerID = CurrentUser.shared?.id else { return }
         getPhotosInAlbumApi(ownerID: ownerID, albumID: albumID)

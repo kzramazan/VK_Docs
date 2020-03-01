@@ -1,57 +1,40 @@
 //
-//  PhotoAlbumCollectionViewCell.swift
+//  GoodsInGroupCell.swift
 //  VK_Docs
 //
-//  Created by Ramazan Kazybek on 2/26/20.
+//  Created by Ramazan Kazybek on 3/1/20.
 //  Copyright © 2020 Ramazan Kazybek. All rights reserved.
 //
 
 import UIKit
 
-protocol PhotoAlbumCollectionViewCellDelegate {
-    func removeBtnTapped(album: VKCustomAlbum)
-}
-
-class PhotoAlbumCollectionViewCell: UICollectionViewCell & ViewEditable {
-    var delegate: PhotoAlbumCollectionViewCellDelegate?
-    private var album: VKCustomAlbum?
-    
-    internal lazy var removeBtn: UIButton = {
-        let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "remove_cell"), for: .normal)
-        button.addTarget(self, action: #selector(removeBtnTapped), for: .touchUpInside)
-        return button
-    }()
-    
-    internal var isAnimate: Bool = false {
-        didSet {
-            removeBtn.isHidden = !isAnimate
-        }
-    }
-
+class GoodsInGroupCell: UICollectionViewCell {
     private var albumPhotoImageView: CustomImageView = {
         let imageView = CustomImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        imageView.layer.borderWidth = 0.5
+        imageView.layer.borderColor = Tint.emptyViewSubtitleColor.cgColor
         return imageView
     }()
     
     private var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        
-        label.font = UIFont.mainFontSemiBold(ofSize: 14)
-        label.numberOfLines = 2
+        label.font = UIFont.mainFontSemiBold(ofSize: 13)
+        label.textColor = Tint.emptyViewSubtitleColor
+        label.numberOfLines = 1
+        label.textAlignment = .center
         return label
     }()
     
-    private var numberOfPhotosLabel: UILabel = {
+    private var costLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        
-        label.font = UIFont.mainFontSemiBold(ofSize: 14)
         label.numberOfLines = 1
-        label.textColor = UIColor(hex: "#909499")
+        label.textColor = .black
+        label.textAlignment = .center
+        label.font = UIFont.mainFontBold(ofSize: 14)
         return label
     }()
     
@@ -63,7 +46,7 @@ class PhotoAlbumCollectionViewCell: UICollectionViewCell & ViewEditable {
     override func prepareForReuse() {
         super.prepareForReuse()
         titleLabel.text = nil
-        numberOfPhotosLabel.text = nil
+        costLabel.text = nil
         albumPhotoImageView.image = nil
     }
     
@@ -76,28 +59,24 @@ class PhotoAlbumCollectionViewCell: UICollectionViewCell & ViewEditable {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setCell(album: VKCustomAlbum) {
-        self.album = album
-        if let imageStr = album.getImageUrl() {
+    func setCell(good: GoodInGroup) {
+        if let imageStr = good.thumbPhoto {
             albumPhotoImageView.loadImageFromUrl(urlString: imageStr)
         }else {
             albumPhotoImageView.image = #imageLiteral(resourceName: "other_docs")
         }
-        titleLabel.text = album.title
-        numberOfPhotosLabel.text = album.size.description + " фотографии"
-    }
-    
-    @objc private func removeBtnTapped() {
-        guard let album = album else { return }
-        delegate?.removeBtnTapped(album: album)
+        
+        titleLabel.text = good.title
+        if let price = good.price.text {
+            costLabel.text = price
+        }
     }
     
     private func configUI() {
         self.backgroundColor = .clear
         self.addSubview(albumPhotoImageView)
         self.addSubview(titleLabel)
-        self.addSubview(numberOfPhotosLabel)
-        self.addSubview(removeBtn)
+        self.addSubview(costLabel)
         
         makeConstraints()
         self.setNeedsDisplay()
@@ -113,22 +92,14 @@ class PhotoAlbumCollectionViewCell: UICollectionViewCell & ViewEditable {
             make.height.equalTo(albumPhotoImageView.snp.width)
         }
         
-        removeBtn.snp.makeConstraints { (make) in
-            make.right.equalToSuperview().offset(5)
-            make.top.equalToSuperview().offset(-5)
-        }
-        
         titleLabel.snp.makeConstraints { (make) in
             make.top.equalTo(albumPhotoImageView.snp.bottom).offset(7)
-            make.leading.equalToSuperview()
-            make.trailing.lessThanOrEqualToSuperview()
+            make.leading.trailing.equalToSuperview()
         }
         
-        numberOfPhotosLabel.snp.makeConstraints { (make) in
+        costLabel.snp.makeConstraints { (make) in
             make.top.equalTo(titleLabel.snp.bottom).offset(1)
-            make.leading.equalToSuperview()
-            make.trailing.lessThanOrEqualToSuperview()
+            make.leading.trailing.equalToSuperview()
         }
     }
-
 }

@@ -27,11 +27,11 @@ extension UIFont {
     }
     
     static func mainFontBold(ofSize size: CGFloat) -> UIFont {
-        return customFont(name: "OpenSans-Bold", size: size)
+        return customFont(name: "Arial-BoldMT", size: size)
     }
     
     static func mainFontSemiBold(ofSize size: CGFloat) -> UIFont {
-        return customFont(name: "OpenSans-SemiBold", size: size)
+        return customFont(name: "ArialMT", size: size)
     }
     
     private static func customFont(name: String, size: CGFloat) -> UIFont {

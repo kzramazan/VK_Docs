@@ -26,14 +26,14 @@ class SignInVC: UIViewController {
         VKSdk.initialize(withAppId: Constants.vkAppID)
         VKSdk.instance()?.register(self)
         VKSdk.instance().uiDelegate = self
-        
-        VKSdk.wakeUpSession(["friends", "email", "docs", "wall", "photos"]) { [weak self] (state, error) in
+        let accesses = [VK_PER_FRIENDS, VK_PER_EMAIL, VK_PER_DOCS, VK_PER_WALL, VK_PER_PHOTOS, VK_PER_MARKET]
+        VKSdk.wakeUpSession(accesses) { [weak self] (state, error) in
             guard let self = self else { return }
             if error != nil {
                 print(error?.localizedDescription)
                 return
             }
-            VKSdk.authorize(["friends", "email", "docs", "wall", "photos"], with: .disableSafariController)
+            VKSdk.authorize(accesses, with: .disableSafariController)
 //            if state == .authorized {
 //                self.goToNeededVC()
 //            }else {
@@ -78,7 +78,7 @@ private extension SignInVC {
     }
     
     func goToPhotoAlbumsVC() {
-        let vc = UINavigationController(rootViewController: PhotoAlbumsVC())
+        let vc = UINavigationController(rootViewController: GoodsInCityVC())
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .flipHorizontal
         navigationController?.present(vc, animated: true)
