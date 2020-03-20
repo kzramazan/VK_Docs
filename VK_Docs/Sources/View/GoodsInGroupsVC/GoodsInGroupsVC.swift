@@ -94,7 +94,7 @@ private extension GoodsInGroupsVC {
         }) { [weak self] (error) in
             guard let self = self else { return }
             self.stopRefreshing()
-            print(error)
+            print(error as Any)
         }
     }
     

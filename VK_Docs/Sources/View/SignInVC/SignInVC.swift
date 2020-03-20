@@ -27,10 +27,10 @@ class SignInVC: UIViewController {
         VKSdk.instance()?.register(self)
         VKSdk.instance().uiDelegate = self
         let accesses = [VK_PER_FRIENDS, VK_PER_EMAIL, VK_PER_DOCS, VK_PER_WALL, VK_PER_PHOTOS, VK_PER_MARKET]
-        VKSdk.wakeUpSession(accesses) { [weak self] (state, error) in
-            guard let self = self else { return }
+        VKSdk.wakeUpSession(accesses) { (state, error) in
+//            guard let self = self else { return }
             if error != nil {
-                print(error?.localizedDescription)
+                print(error?.localizedDescription as Any)
                 return
             }
             VKSdk.authorize(accesses, with: .disableSafariController)

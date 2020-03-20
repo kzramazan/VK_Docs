@@ -28,7 +28,7 @@ class ApiClient {
                     }
                     print("Request: ", request)
                     print("Request Type: ", apiRouter.method)
-                    print("Status Code: ", response.response?.statusCode)
+                    print("Status Code: ", response.response?.statusCode as Any)
                     print("---------------------------")
                     switch response.result {
                     case .success:

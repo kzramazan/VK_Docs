@@ -101,7 +101,7 @@ extension CertainAlbumPhotosVC: UIImagePickerControllerDelegate & UINavigationCo
                 guard let self = self else { return }
                 self.collectionView.reloadData()
             }) { (error) in
-                print("Error here: ", error)
+                print("Error here: ", error as Any)
             }
         }
     }
