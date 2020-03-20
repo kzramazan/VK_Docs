@@ -9,9 +9,9 @@
 import UIKit
 
 enum Icon: String {
-    case goods
-    case photoAlbums
-    case contentSharing
+    case goods = "profile"
+    case photoAlbums = "catalogue"
+    case contentSharing = "home"
     case settings
     
     var getIcon: UIImage? {

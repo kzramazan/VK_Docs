@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3401E88924251EC1006F9C10 /* SharedViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401E88824251EC1006F9C10 /* SharedViewControllers.swift */; };
 		3457D5F52403993D00CCA1F2 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457D5F42403993D00CCA1F2 /* UIView+Extension.swift */; };
 		3457D5F72403F54000CCA1F2 /* CustomCountableButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457D5F62403F54000CCA1F2 /* CustomCountableButtonView.swift */; };
 		3457D5F92404608800CCA1F2 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457D5F82404608800CCA1F2 /* Int+Extension.swift */; };
@@ -41,6 +42,29 @@
 		34968C4D23FB0AFC00D70CFE /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34968C4C23FB0AFC00D70CFE /* UIViewController+Extension.swift */; };
 		349CD87224247FDC00A39501 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349CD87124247FDC00A39501 /* Icon.swift */; };
 		349CD875242481AB00A39501 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349CD874242481AB00A39501 /* MainTabBarController.swift */; };
+		349CD878242486F600A39501 /* ContentSharingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349CD877242486F600A39501 /* ContentSharingViewModel.swift */; };
+		349CD87D242487CD00A39501 /* ContentSharingPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349CD87B242487CD00A39501 /* ContentSharingPopupVC.swift */; };
+		349CD87E242487CD00A39501 /* ContentSharingPopupVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 349CD87C242487CD00A39501 /* ContentSharingPopupVC.xib */; };
+		349CD881242487F700A39501 /* ContentSharingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349CD87F242487F700A39501 /* ContentSharingVC.swift */; };
+		349CD882242487F700A39501 /* ContentSharingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 349CD880242487F700A39501 /* ContentSharingVC.xib */; };
+		349CD8842424888600A39501 /* BaseViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349CD8832424888600A39501 /* BaseViewControllerProtocol.swift */; };
+		349CD88724248AF600A39501 /* CityShopsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349CD88624248AF600A39501 /* CityShopsVC.swift */; };
+		349CD88B24248B2300A39501 /* CityShopsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349CD88924248B2300A39501 /* CityShopsTableViewCell.swift */; };
+		349CD88C24248B2300A39501 /* CityShopsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 349CD88A24248B2300A39501 /* CityShopsTableViewCell.xib */; };
+		349CD89024248B7300A39501 /* GroupUnsubscribeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349CD88E24248B7300A39501 /* GroupUnsubscribeVC.swift */; };
+		349CD89124248B7300A39501 /* GroupUnsubscribeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 349CD88F24248B7300A39501 /* GroupUnsubscribeVC.xib */; };
+		349CD89424248BB200A39501 /* GroupInfoPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349CD89224248BB200A39501 /* GroupInfoPopupVC.swift */; };
+		349CD89524248BB200A39501 /* GroupInfoPopupVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 349CD89324248BB200A39501 /* GroupInfoPopupVC.xib */; };
+		349CD89824248C2500A39501 /* GroupUnsubscribeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349CD89624248C2500A39501 /* GroupUnsubscribeCollectionViewCell.swift */; };
+		349CD89924248C2500A39501 /* GroupUnsubscribeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 349CD89724248C2500A39501 /* GroupUnsubscribeCollectionViewCell.xib */; };
+		349CD89C24248C7F00A39501 /* CityShopsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349CD89B24248C7F00A39501 /* CityShopsViewModel.swift */; };
+		349CD89F24248CC300A39501 /* GroupUnsubscribeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349CD89E24248CC300A39501 /* GroupUnsubscribeViewModel.swift */; };
+		349CD8A224248E5E00A39501 /* PhotoAlbumVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349CD8A124248E5E00A39501 /* PhotoAlbumVC.swift */; };
+		349CD8A4242491DA00A39501 /* CustomFloatingContentSharingPanelLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349CD8A3242491DA00A39501 /* CustomFloatingContentSharingPanelLayout.swift */; };
+		349CD8A6242491F300A39501 /* CustomFloatingGroupInfoPanelLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349CD8A5242491F300A39501 /* CustomFloatingGroupInfoPanelLayout.swift */; };
+		349CD8A92424924D00A39501 /* PhotoAlbumsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349CD8A82424924D00A39501 /* PhotoAlbumsViewModel.swift */; };
+		349CD8AD242492BB00A39501 /* PhotoAlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349CD8AB242492BB00A39501 /* PhotoAlbumCollectionViewCell.swift */; };
+		349CD8AE242492BB00A39501 /* PhotoAlbumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 349CD8AC242492BB00A39501 /* PhotoAlbumCollectionViewCell.xib */; };
 		34A4843F240AA5310059582B /* GoodsInCityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A4843E240AA5310059582B /* GoodsInCityVC.swift */; };
 		34A48444240AA5710059582B /* MarketGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A48442240AA5710059582B /* MarketGroupTableViewCell.swift */; };
 		34A48445240AA5710059582B /* MarketGroupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34A48443240AA5710059582B /* MarketGroupTableViewCell.xib */; };
@@ -71,6 +95,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3401E88824251EC1006F9C10 /* SharedViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedViewControllers.swift; sourceTree = "<group>"; };
 		3457D5F42403993D00CCA1F2 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		3457D5F62403F54000CCA1F2 /* CustomCountableButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCountableButtonView.swift; sourceTree = "<group>"; };
 		3457D5F82404608800CCA1F2 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
@@ -105,6 +130,29 @@
 		34968C4C23FB0AFC00D70CFE /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		349CD87124247FDC00A39501 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		349CD874242481AB00A39501 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		349CD877242486F600A39501 /* ContentSharingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSharingViewModel.swift; sourceTree = "<group>"; };
+		349CD87B242487CD00A39501 /* ContentSharingPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSharingPopupVC.swift; sourceTree = "<group>"; };
+		349CD87C242487CD00A39501 /* ContentSharingPopupVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentSharingPopupVC.xib; sourceTree = "<group>"; };
+		349CD87F242487F700A39501 /* ContentSharingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSharingVC.swift; sourceTree = "<group>"; };
+		349CD880242487F700A39501 /* ContentSharingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentSharingVC.xib; sourceTree = "<group>"; };
+		349CD8832424888600A39501 /* BaseViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerProtocol.swift; sourceTree = "<group>"; };
+		349CD88624248AF600A39501 /* CityShopsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityShopsVC.swift; sourceTree = "<group>"; };
+		349CD88924248B2300A39501 /* CityShopsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityShopsTableViewCell.swift; sourceTree = "<group>"; };
+		349CD88A24248B2300A39501 /* CityShopsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityShopsTableViewCell.xib; sourceTree = "<group>"; };
+		349CD88E24248B7300A39501 /* GroupUnsubscribeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupUnsubscribeVC.swift; sourceTree = "<group>"; };
+		349CD88F24248B7300A39501 /* GroupUnsubscribeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupUnsubscribeVC.xib; sourceTree = "<group>"; };
+		349CD89224248BB200A39501 /* GroupInfoPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupInfoPopupVC.swift; sourceTree = "<group>"; };
+		349CD89324248BB200A39501 /* GroupInfoPopupVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupInfoPopupVC.xib; sourceTree = "<group>"; };
+		349CD89624248C2500A39501 /* GroupUnsubscribeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupUnsubscribeCollectionViewCell.swift; sourceTree = "<group>"; };
+		349CD89724248C2500A39501 /* GroupUnsubscribeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupUnsubscribeCollectionViewCell.xib; sourceTree = "<group>"; };
+		349CD89B24248C7F00A39501 /* CityShopsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityShopsViewModel.swift; sourceTree = "<group>"; };
+		349CD89E24248CC300A39501 /* GroupUnsubscribeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupUnsubscribeViewModel.swift; sourceTree = "<group>"; };
+		349CD8A124248E5E00A39501 /* PhotoAlbumVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumVC.swift; sourceTree = "<group>"; };
+		349CD8A3242491DA00A39501 /* CustomFloatingContentSharingPanelLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFloatingContentSharingPanelLayout.swift; sourceTree = "<group>"; };
+		349CD8A5242491F300A39501 /* CustomFloatingGroupInfoPanelLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFloatingGroupInfoPanelLayout.swift; sourceTree = "<group>"; };
+		349CD8A82424924D00A39501 /* PhotoAlbumsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumsViewModel.swift; sourceTree = "<group>"; };
+		349CD8AB242492BB00A39501 /* PhotoAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
+		349CD8AC242492BB00A39501 /* PhotoAlbumCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoAlbumCollectionViewCell.xib; sourceTree = "<group>"; };
 		34A4843E240AA5310059582B /* GoodsInCityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsInCityVC.swift; sourceTree = "<group>"; };
 		34A48442240AA5710059582B /* MarketGroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketGroupTableViewCell.swift; sourceTree = "<group>"; };
 		34A48443240AA5710059582B /* MarketGroupTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarketGroupTableViewCell.xib; sourceTree = "<group>"; };
@@ -150,6 +198,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3401E88724251EB9006F9C10 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				3401E88824251EC1006F9C10 /* SharedViewControllers.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		3457D60B240592C800CCA1F2 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +245,10 @@
 		3464949E23FB1494002DAE01 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				349CD8A72424923F00A39501 /* PhotoAlbumsVC */,
+				349CD89D24248CAB00A39501 /* GroupUnsubscribeVC */,
+				349CD89A24248C7400A39501 /* CityShopsVC */,
+				349CD876242486E900A39501 /* ContentSharingVC */,
 				34DA0DB1240BEABA00BBA861 /* CitySelectionVC */,
 				34DA0DA7240BC8C100BBA861 /* CertainGoodVC */,
 				34D5A3FD240B9B1F007106D1 /* GoodsInGroupsVC */,
@@ -209,6 +269,8 @@
 				3457D5FA2404EAA400CCA1F2 /* CollectionViewHeaderView.swift */,
 				34DA0DAA240BE6CC00BBA861 /* FavouritesAddButton.swift */,
 				34DA0DAF240BE90200BBA861 /* SelectionButton.swift */,
+				349CD8A3242491DA00A39501 /* CustomFloatingContentSharingPanelLayout.swift */,
+				349CD8A5242491F300A39501 /* CustomFloatingGroupInfoPanelLayout.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -251,6 +313,10 @@
 		34968C3F23FAF3DB00D70CFE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				349CD8A024248E4C00A39501 /* PhotoAlbumVC */,
+				349CD88D24248B4800A39501 /* GroupUnsubscribeVC */,
+				349CD88524248ADB00A39501 /* CityShopsVC */,
+				349CD879242487A000A39501 /* ContentSharingVC */,
 				349CD8732424816100A39501 /* MainTabBarVC */,
 				34DA0DAC240BE8AF00BBA861 /* CitySelectionVC */,
 				34DA0DA4240BC58300BBA861 /* CertainGoodVC */,
@@ -272,6 +338,7 @@
 				346494C623FE7F95002DAE01 /* UIFont+Extension.swift */,
 				3457D5F42403993D00CCA1F2 /* UIView+Extension.swift */,
 				3457D5F82404608800CCA1F2 /* Int+Extension.swift */,
+				349CD8832424888600A39501 /* BaseViewControllerProtocol.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -282,6 +349,106 @@
 				349CD874242481AB00A39501 /* MainTabBarController.swift */,
 			);
 			path = MainTabBarVC;
+			sourceTree = "<group>";
+		};
+		349CD876242486E900A39501 /* ContentSharingVC */ = {
+			isa = PBXGroup;
+			children = (
+				349CD877242486F600A39501 /* ContentSharingViewModel.swift */,
+			);
+			path = ContentSharingVC;
+			sourceTree = "<group>";
+		};
+		349CD879242487A000A39501 /* ContentSharingVC */ = {
+			isa = PBXGroup;
+			children = (
+				349CD87A242487AC00A39501 /* Submodules */,
+				349CD87F242487F700A39501 /* ContentSharingVC.swift */,
+				349CD880242487F700A39501 /* ContentSharingVC.xib */,
+			);
+			path = ContentSharingVC;
+			sourceTree = "<group>";
+		};
+		349CD87A242487AC00A39501 /* Submodules */ = {
+			isa = PBXGroup;
+			children = (
+				349CD87B242487CD00A39501 /* ContentSharingPopupVC.swift */,
+				349CD87C242487CD00A39501 /* ContentSharingPopupVC.xib */,
+			);
+			path = Submodules;
+			sourceTree = "<group>";
+		};
+		349CD88524248ADB00A39501 /* CityShopsVC */ = {
+			isa = PBXGroup;
+			children = (
+				349CD88824248B0100A39501 /* Submodules */,
+				349CD88624248AF600A39501 /* CityShopsVC.swift */,
+			);
+			path = CityShopsVC;
+			sourceTree = "<group>";
+		};
+		349CD88824248B0100A39501 /* Submodules */ = {
+			isa = PBXGroup;
+			children = (
+				349CD88924248B2300A39501 /* CityShopsTableViewCell.swift */,
+				349CD88A24248B2300A39501 /* CityShopsTableViewCell.xib */,
+			);
+			path = Submodules;
+			sourceTree = "<group>";
+		};
+		349CD88D24248B4800A39501 /* GroupUnsubscribeVC */ = {
+			isa = PBXGroup;
+			children = (
+				349CD88E24248B7300A39501 /* GroupUnsubscribeVC.swift */,
+				349CD88F24248B7300A39501 /* GroupUnsubscribeVC.xib */,
+				349CD89224248BB200A39501 /* GroupInfoPopupVC.swift */,
+				349CD89324248BB200A39501 /* GroupInfoPopupVC.xib */,
+				349CD89624248C2500A39501 /* GroupUnsubscribeCollectionViewCell.swift */,
+				349CD89724248C2500A39501 /* GroupUnsubscribeCollectionViewCell.xib */,
+			);
+			path = GroupUnsubscribeVC;
+			sourceTree = "<group>";
+		};
+		349CD89A24248C7400A39501 /* CityShopsVC */ = {
+			isa = PBXGroup;
+			children = (
+				349CD89B24248C7F00A39501 /* CityShopsViewModel.swift */,
+			);
+			path = CityShopsVC;
+			sourceTree = "<group>";
+		};
+		349CD89D24248CAB00A39501 /* GroupUnsubscribeVC */ = {
+			isa = PBXGroup;
+			children = (
+				349CD89E24248CC300A39501 /* GroupUnsubscribeViewModel.swift */,
+			);
+			path = GroupUnsubscribeVC;
+			sourceTree = "<group>";
+		};
+		349CD8A024248E4C00A39501 /* PhotoAlbumVC */ = {
+			isa = PBXGroup;
+			children = (
+				349CD8AA242492A400A39501 /* Submodules */,
+				349CD8A124248E5E00A39501 /* PhotoAlbumVC.swift */,
+			);
+			path = PhotoAlbumVC;
+			sourceTree = "<group>";
+		};
+		349CD8A72424923F00A39501 /* PhotoAlbumsVC */ = {
+			isa = PBXGroup;
+			children = (
+				349CD8A82424924D00A39501 /* PhotoAlbumsViewModel.swift */,
+			);
+			path = PhotoAlbumsVC;
+			sourceTree = "<group>";
+		};
+		349CD8AA242492A400A39501 /* Submodules */ = {
+			isa = PBXGroup;
+			children = (
+				349CD8AB242492BB00A39501 /* PhotoAlbumCollectionViewCell.swift */,
+				349CD8AC242492BB00A39501 /* PhotoAlbumCollectionViewCell.xib */,
+			);
+			path = Submodules;
 			sourceTree = "<group>";
 		};
 		34A48440240AA5370059582B /* GoodsInCityVC */ = {
@@ -371,6 +538,7 @@
 		34D1A21023FA3EC0000F450D /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				3401E88724251EB9006F9C10 /* Shared */,
 				34D1A21123FA3ED1000F450D /* Constants.swift */,
 				346494A523FB23EA002DAE01 /* Units.swift */,
 				346494A723FB284B002DAE01 /* DateUtility.swift */,
@@ -529,8 +697,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				349CD89124248B7300A39501 /* GroupUnsubscribeVC.xib in Resources */,
+				349CD89924248C2500A39501 /* GroupUnsubscribeCollectionViewCell.xib in Resources */,
 				34D1A1FA23F98CCB000F450D /* LaunchScreen.storyboard in Resources */,
 				34A48445240AA5710059582B /* MarketGroupTableViewCell.xib in Resources */,
+				349CD89524248BB200A39501 /* GroupInfoPopupVC.xib in Resources */,
+				349CD87E242487CD00A39501 /* ContentSharingPopupVC.xib in Resources */,
+				349CD8AE242492BB00A39501 /* PhotoAlbumCollectionViewCell.xib in Resources */,
+				349CD882242487F700A39501 /* ContentSharingVC.xib in Resources */,
+				349CD88C24248B2300A39501 /* CityShopsTableViewCell.xib in Resources */,
 				34D1A1F723F98CCB000F450D /* Assets.xcassets in Resources */,
 				34D1A20823F9A5FB000F450D /* SignInVC.xib in Resources */,
 				34D1A1F523F98CCA000F450D /* Main.storyboard in Resources */,
@@ -589,22 +764,32 @@
 				345E2AB02407C57300DD2C46 /* CertainAlbumPhotosViewModel.swift in Sources */,
 				3457D615240592C800CCA1F2 /* ApiRequest.swift in Sources */,
 				349CD875242481AB00A39501 /* MainTabBarController.swift in Sources */,
+				349CD88724248AF600A39501 /* CityShopsVC.swift in Sources */,
+				349CD89424248BB200A39501 /* GroupInfoPopupVC.swift in Sources */,
 				345E2AB5240842BC00DD2C46 /* CertainAlbumPhotosCollectionViewCell.swift in Sources */,
 				34A48444240AA5710059582B /* MarketGroupTableViewCell.swift in Sources */,
 				3457D614240592C800CCA1F2 /* ApiRouter.swift in Sources */,
 				34D5A3FC240B9A86007106D1 /* GoodsInGroupCell.swift in Sources */,
 				346494A623FB23EA002DAE01 /* Units.swift in Sources */,
 				3457D5F92404608800CCA1F2 /* Int+Extension.swift in Sources */,
+				349CD8A92424924D00A39501 /* PhotoAlbumsViewModel.swift in Sources */,
 				34D1A20F23F9D41D000F450D /* CurrentUser.swift in Sources */,
 				346494C523FE7F37002DAE01 /* ListPlaceholderView.swift in Sources */,
+				349CD88B24248B2300A39501 /* CityShopsTableViewCell.swift in Sources */,
+				349CD89C24248C7F00A39501 /* CityShopsViewModel.swift in Sources */,
 				34DA0DAB240BE6CC00BBA861 /* FavouritesAddButton.swift in Sources */,
+				349CD8AD242492BB00A39501 /* PhotoAlbumCollectionViewCell.swift in Sources */,
 				34968C4423FAFD1B00D70CFE /* UITableView+Extension.swift in Sources */,
 				34DA0DAE240BE8C800BBA861 /* CitySelectionVC.swift in Sources */,
 				34968C4623FAFDEC00D70CFE /* UITableViewCell+Extension.swift in Sources */,
 				345E2AB72408455E00DD2C46 /* QuickLookImageVC.swift in Sources */,
 				34D1A1EE23F98CCA000F450D /* AppDelegate.swift in Sources */,
+				3401E88924251EC1006F9C10 /* SharedViewControllers.swift in Sources */,
 				3457D613240592C800CCA1F2 /* ApiClient.swift in Sources */,
+				349CD89024248B7300A39501 /* GroupUnsubscribeVC.swift in Sources */,
 				34D1A20323F9A526000F450D /* SignInVC.swift in Sources */,
+				349CD878242486F600A39501 /* ContentSharingViewModel.swift in Sources */,
+				349CD87D242487CD00A39501 /* ContentSharingPopupVC.swift in Sources */,
 				34D5A3F9240B999F007106D1 /* GoodsInGroupsVC.swift in Sources */,
 				3457D5F72403F54000CCA1F2 /* CustomCountableButtonView.swift in Sources */,
 				346494C723FE7F95002DAE01 /* UIFont+Extension.swift in Sources */,
@@ -613,7 +798,9 @@
 				34DA0DB8240BF6D300BBA861 /* SelectionTableViewCell.swift in Sources */,
 				346494B523FBF644002DAE01 /* UIImageView+Extension.swift in Sources */,
 				346494BB23FD105A002DAE01 /* Refreshable.swift in Sources */,
+				349CD8842424888600A39501 /* BaseViewControllerProtocol.swift in Sources */,
 				346494A823FB284B002DAE01 /* DateUtility.swift in Sources */,
+				349CD8A4242491DA00A39501 /* CustomFloatingContentSharingPanelLayout.swift in Sources */,
 				346494CE23FFADBC002DAE01 /* FloatablePanel.swift in Sources */,
 				34A4843F240AA5310059582B /* GoodsInCityVC.swift in Sources */,
 				345E2AAA2407B49400DD2C46 /* VKCustomAlbum.swift in Sources */,
@@ -624,20 +811,25 @@
 				3457D5F52403993D00CCA1F2 /* UIView+Extension.swift in Sources */,
 				34DA0DB3240BEAC200BBA861 /* CitySelectionViewModel.swift in Sources */,
 				34968C4D23FB0AFC00D70CFE /* UIViewController+Extension.swift in Sources */,
+				349CD8A224248E5E00A39501 /* PhotoAlbumVC.swift in Sources */,
 				34A4844A240B6BD20059582B /* MarketGroup.swift in Sources */,
+				349CD881242487F700A39501 /* ContentSharingVC.swift in Sources */,
 				346494B123FBF3C3002DAE01 /* WebViewOpenable.swift in Sources */,
 				346494AA23FB2CC4002DAE01 /* DocumentsProvider.swift in Sources */,
 				3457D617240594DA00CCA1F2 /* Session.swift in Sources */,
 				34DA0DB0240BE90200BBA861 /* SelectionButton.swift in Sources */,
+				349CD89F24248CC300A39501 /* GroupUnsubscribeViewModel.swift in Sources */,
 				34A48448240ABC1F0059582B /* GoodsInCityViewModel.swift in Sources */,
 				346494D724004C4A002DAE01 /* UIImage+Extension.swift in Sources */,
 				34D5A403240BA0BF007106D1 /* GoodInGroup.swift in Sources */,
 				34DA0DA9240BC8C900BBA861 /* CertainGoodViewModel.swift in Sources */,
 				346494D224002EEF002DAE01 /* Camera.swift in Sources */,
+				349CD8A6242491F300A39501 /* CustomFloatingGroupInfoPanelLayout.swift in Sources */,
 				34D1A21223FA3ED1000F450D /* Constants.swift in Sources */,
 				349CD87224247FDC00A39501 /* Icon.swift in Sources */,
 				3457D612240592C800CCA1F2 /* Error.swift in Sources */,
 				34DA0DB5240BED7300BBA861 /* City.swift in Sources */,
+				349CD89824248C2500A39501 /* GroupUnsubscribeCollectionViewCell.swift in Sources */,
 				34DA0DA6240BC59A00BBA861 /* CertainGoodVC.swift in Sources */,
 				346494AD23FBEBA9002DAE01 /* WebViewController.swift in Sources */,
 				34D5A401240B9C33007106D1 /* GoodsInGroupsViewModel.swift in Sources */,

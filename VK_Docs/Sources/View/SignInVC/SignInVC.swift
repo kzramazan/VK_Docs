@@ -78,7 +78,7 @@ private extension SignInVC {
     }
     
     func goToPhotoAlbumsVC() {
-        let vc = UINavigationController(rootViewController: GoodsInCityVC())
+        let vc = MainTabBarController()
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .flipHorizontal
         navigationController?.present(vc, animated: true)
