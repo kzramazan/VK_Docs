@@ -39,6 +39,8 @@
 		34968C4423FAFD1B00D70CFE /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34968C4323FAFD1B00D70CFE /* UITableView+Extension.swift */; };
 		34968C4623FAFDEC00D70CFE /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34968C4523FAFDEC00D70CFE /* UITableViewCell+Extension.swift */; };
 		34968C4D23FB0AFC00D70CFE /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34968C4C23FB0AFC00D70CFE /* UIViewController+Extension.swift */; };
+		349CD87224247FDC00A39501 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349CD87124247FDC00A39501 /* Icon.swift */; };
+		349CD875242481AB00A39501 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349CD874242481AB00A39501 /* MainTabBarController.swift */; };
 		34A4843F240AA5310059582B /* GoodsInCityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A4843E240AA5310059582B /* GoodsInCityVC.swift */; };
 		34A48444240AA5710059582B /* MarketGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A48442240AA5710059582B /* MarketGroupTableViewCell.swift */; };
 		34A48445240AA5710059582B /* MarketGroupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34A48443240AA5710059582B /* MarketGroupTableViewCell.xib */; };
@@ -101,6 +103,8 @@
 		34968C4323FAFD1B00D70CFE /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		34968C4523FAFDEC00D70CFE /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		34968C4C23FB0AFC00D70CFE /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		349CD87124247FDC00A39501 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
+		349CD874242481AB00A39501 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		34A4843E240AA5310059582B /* GoodsInCityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsInCityVC.swift; sourceTree = "<group>"; };
 		34A48442240AA5710059582B /* MarketGroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketGroupTableViewCell.swift; sourceTree = "<group>"; };
 		34A48443240AA5710059582B /* MarketGroupTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarketGroupTableViewCell.xib; sourceTree = "<group>"; };
@@ -247,6 +251,7 @@
 		34968C3F23FAF3DB00D70CFE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				349CD8732424816100A39501 /* MainTabBarVC */,
 				34DA0DAC240BE8AF00BBA861 /* CitySelectionVC */,
 				34DA0DA4240BC58300BBA861 /* CertainGoodVC */,
 				34D5A3F7240B9988007106D1 /* GoodsInGroupsVC */,
@@ -269,6 +274,14 @@
 				3457D5F82404608800CCA1F2 /* Int+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		349CD8732424816100A39501 /* MainTabBarVC */ = {
+			isa = PBXGroup;
+			children = (
+				349CD874242481AB00A39501 /* MainTabBarController.swift */,
+			);
+			path = MainTabBarVC;
 			sourceTree = "<group>";
 		};
 		34A48440240AA5370059582B /* GoodsInCityVC */ = {
@@ -368,6 +381,7 @@
 				3457D616240594DA00CCA1F2 /* Session.swift */,
 				345E2AB62408455E00DD2C46 /* QuickLookImageVC.swift */,
 				345E2AB82408641A00DD2C46 /* ViewEditable.swift */,
+				349CD87124247FDC00A39501 /* Icon.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -574,6 +588,7 @@
 			files = (
 				345E2AB02407C57300DD2C46 /* CertainAlbumPhotosViewModel.swift in Sources */,
 				3457D615240592C800CCA1F2 /* ApiRequest.swift in Sources */,
+				349CD875242481AB00A39501 /* MainTabBarController.swift in Sources */,
 				345E2AB5240842BC00DD2C46 /* CertainAlbumPhotosCollectionViewCell.swift in Sources */,
 				34A48444240AA5710059582B /* MarketGroupTableViewCell.swift in Sources */,
 				3457D614240592C800CCA1F2 /* ApiRouter.swift in Sources */,
@@ -620,6 +635,7 @@
 				34DA0DA9240BC8C900BBA861 /* CertainGoodViewModel.swift in Sources */,
 				346494D224002EEF002DAE01 /* Camera.swift in Sources */,
 				34D1A21223FA3ED1000F450D /* Constants.swift in Sources */,
+				349CD87224247FDC00A39501 /* Icon.swift in Sources */,
 				3457D612240592C800CCA1F2 /* Error.swift in Sources */,
 				34DA0DB5240BED7300BBA861 /* City.swift in Sources */,
 				34DA0DA6240BC59A00BBA861 /* CertainGoodVC.swift in Sources */,
