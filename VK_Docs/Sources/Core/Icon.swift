@@ -12,6 +12,7 @@ enum Icon: String {
     case goods = "profile"
     case photoAlbums = "catalogue"
     case contentSharing = "home"
+    case groups
     case settings
     
     var getIcon: UIImage? {

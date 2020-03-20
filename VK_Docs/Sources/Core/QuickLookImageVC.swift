@@ -22,6 +22,18 @@ class QuickLookImageVC: UIViewController {
         configUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        sharedMainTabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        sharedMainTabBarController?.tabBar.isHidden = false
+    }
+    
     func loadImage(urlPath: String) {
         imageView.loadImageFromUrl(urlString: urlPath)
     }

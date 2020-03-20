@@ -47,6 +47,17 @@ class MainTabBarController: UITabBarController {
         return vc
     }()
     
+    private lazy var groupUnsubscribe: GroupUnsubscribeVC = {
+        let vc = GroupUnsubscribeVC()
+        vc.tabBarItem = {
+            let item = defaultTabItem()
+            item.image = Icon.groups.getIcon
+            item.title = "Сообщества"
+            return item
+        }()
+        return vc
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -75,13 +86,15 @@ private extension MainTabBarController {
         contentSharingVC.tabBarItem.title = "Публиковать"
         goodsVC.tabBarItem.title = "Товары"
         photoAlbumsVC.tabBarItem.title = "Галерея"
+        groupUnsubscribe.tabBarItem.title = "Сообщества"
     }
     
     func configureVCs() {
         let vcs: [UIViewController] = [
             contentSharingVC,
             goodsVC,
-            photoAlbumsVC
+            photoAlbumsVC,
+            groupUnsubscribe
         ]
         
         self.viewControllers = vcs.map { vc in

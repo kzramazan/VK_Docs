@@ -224,7 +224,8 @@ private extension GroupUnsubscribeVC {
         }
 
         bottomView.snp.makeConstraints { (make) in
-            make.bottom.right.left.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-50)
+            make.right.left.equalToSuperview()
             make.height.equalTo(102)
         }
 
